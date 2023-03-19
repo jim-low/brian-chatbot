@@ -1,20 +1,20 @@
-import ChatBot from "chatbot"
+// import ChatBot from "chatbot"
 
-var config = {
-    // what inputs should the bot listen to? this selector should point to at least one input field
-    inputs: '#humanInput',
-    // if you want to show the capabilities of the bot under the search input
-    inputCapabilityListing: true,
-    // optionally, you can specify which conversation engines the bot should use, e.g. webknox, spoonacular, or duckduckgo
-    engines: [ChatBot.Engines.duckduckgo()],
-    // you can specify what should happen to newly added messages
-    addChatEntryCallback: function(entryDiv, text, origin) {
-        entryDiv.slideDown();
-    }
-};
+// var config = {
+//     // what inputs should the bot listen to? this selector should point to at least one input field
+//     inputs: '#humanInput',
+//     // if you want to show the capabilities of the bot under the search input
+//     inputCapabilityListing: true,
+//     // optionally, you can specify which conversation engines the bot should use, e.g. webknox, spoonacular, or duckduckgo
+//     engines: [ChatBot.Engines.duckduckgo()],
+//     // you can specify what should happen to newly added messages
+//     addChatEntryCallback: function(entryDiv, text, origin) {
+//         entryDiv.slideDown();
+//     }
+// };
 
-ChatBot.init(config);
-ChatBot.setBotName("Brian The Insufferable")
+// ChatBot.init(config);
+// ChatBot.setBotName("Brian The Insufferable")
 
 // ChatBot.addPattern(
 //     "(?:my name is|I'm|I am) (.*)",
