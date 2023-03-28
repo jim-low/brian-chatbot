@@ -1,2 +1,4 @@
-*.pkl
 node_modules/
+.env
+model.nlp
+package-lock.json
