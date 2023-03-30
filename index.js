@@ -15,7 +15,8 @@ manager.addDocument('en', 'hi', modes.greeting.hello);
 manager.addDocument('en', 'howdy', modes.greeting.hello);
 
 manager.addAnswer('en', modes.greeting.hello, 'Hey there!');
-manager.addAnswer('en', modes.greeting.hello, 'Greetings!');
+manager.addAnswer('en', modes.greeting.hello, '...');
+manager.addAnswer('en', modes.greeting.hello, 'fuck u');
 
 // bye
 manager.addDocument('en', 'goodbye for now', modes.greeting.bye);
