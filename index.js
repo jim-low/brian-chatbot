@@ -40,14 +40,14 @@ async function getResponse(humanInput) {
     await manager.train()
     manager.save()
 
-    const result = await manager.process('en', humanInput)
-    const answers = result.answers
-    const randomIndex = Math.floor(Math.random() * answers.length)
-    const response = answers[randomIndex]?.answer || "Sorry, dumbass say what?"
+    const result = await manager.process('en', humanInput);
+    const answers = result.answers;
+    const randomIndex = Math.floor(Math.random() * answers.length);
+    const response = answers[randomIndex]?.answer || "Sorry, dumbass say what?";
     return {
         answer: response,
         intent: result.intent
-    }
+    };
 }
 
 console.log("Welcome! Have a chat with Brian the Insufferable");
@@ -59,14 +59,14 @@ console.log("Welcome! Have a chat with Brian the Insufferable");
             type: "text",
             name: "input",
             message: "You: "
-        })
+        });
 
-        const response = await getResponse(humanInput.input)
-        console.log("Brian: " + response.answer)
-        console.log()
+        const response = await getResponse(humanInput.input);
+        console.log("Brian: " + response.answer);
+        console.log();
 
         if (response.intent == 'greetings.bye') {
-            break
+            break;
         }
     }
-})()
+})();
