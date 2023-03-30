@@ -3,38 +3,40 @@
 // just some code to let the model train itself
 const { NlpManager } = require('node-nlp');
 const prompts = require("prompts")
+const modes = require("./bot/modes.js")
+const defaults = require("./bot/defaults.js")
 
 const manager = new NlpManager({ languages: ['en'], forceNER: true, nlu: { log: false } });
 // Adds the utterances and intents for the NLP
 
-// greetings.hello
-manager.addDocument('en', 'hello', 'greetings.hello');
-manager.addDocument('en', 'hi', 'greetings.hello');
-manager.addDocument('en', 'howdy', 'greetings.hello');
+// hello
+manager.addDocument('en', 'hello', modes.greeting.hello);
+manager.addDocument('en', 'hi', modes.greeting.hello);
+manager.addDocument('en', 'howdy', modes.greeting.hello);
 
-manager.addAnswer('en', 'greetings.hello', 'Hey there!');
-manager.addAnswer('en', 'greetings.hello', 'Greetings!');
+manager.addAnswer('en', modes.greeting.hello, 'Hey there!');
+manager.addAnswer('en', modes.greeting.hello, 'Greetings!');
 
-// greetings.bye
-manager.addDocument('en', 'goodbye for now', 'greetings.bye');
-manager.addDocument('en', 'bye bye take care', 'greetings.bye');
-manager.addDocument('en', 'okay see you later', 'greetings.bye');
-manager.addDocument('en', 'bye for now', 'greetings.bye');
-manager.addDocument('en', 'i must go', 'greetings.bye');
-manager.addDocument('en', 'screw u', 'greetings.bye');
+// bye
+manager.addDocument('en', 'goodbye for now', modes.greeting.bye);
+manager.addDocument('en', 'bye bye take care', modes.greeting.bye);
+manager.addDocument('en', 'okay see you later', modes.greeting.bye);
+manager.addDocument('en', 'bye for now', modes.greeting.bye);
+manager.addDocument('en', 'i must go', modes.greeting.bye);
+manager.addDocument('en', 'screw u', modes.greeting.bye);
 
-manager.addAnswer('en', 'greetings.bye', 'Till next time');
-manager.addAnswer('en', 'greetings.bye', 'see you soon!');
-manager.addAnswer('en', 'greetings.bye', 'no u');
+manager.addAnswer('en', modes.greeting.bye, 'Till next time');
+manager.addAnswer('en', modes.greeting.bye, 'Your suffering never ends');
+manager.addAnswer('en', modes.greeting.bye, 'no u');
 
-// personality.deeznut
-manager.addDocument('en', 'who is diz?', 'personality.deeznut');
-manager.addDocument('en', 'who is candice?', 'personality.deeznut');
-manager.addDocument('en', 'what stairs?', 'personality.deeznut');
+// deeznuts
+manager.addDocument('en', 'who is diz?', modes.jokes.deeznuts);
+manager.addDocument('en', 'who is candice?', modes.jokes.deeznuts);
+manager.addDocument('en', 'what stairs?', modes.jokes.deeznuts);
 
-manager.addAnswer('en', 'personality.deeznut', 'He is Diz NUTZZZZZZ');
-manager.addAnswer('en', 'personality.deeznut', 'Candice NUTZZZZZZZZZZ FIT IN UR MOUTH');
-manager.addAnswer('en', 'personality.deeznut', 'Stair AT DEEZ NUTZZZZZZZZZZZ');
+manager.addAnswer('en', modes.jokes.deeznuts, 'He is Diz NUTZZZZZZ');
+manager.addAnswer('en', modes.jokes.deeznuts, 'Candice NUTZZZZZZZZZZ FIT IN UR MOUTH');
+manager.addAnswer('en', modes.jokes.deeznuts, 'Stair AT DEEZ NUTZZZZZZZZZZZ');
 
 async function getResponse(humanInput) {
     await manager.train()
@@ -43,14 +45,14 @@ async function getResponse(humanInput) {
     const result = await manager.process('en', humanInput);
     const answers = result.answers;
     const randomIndex = Math.floor(Math.random() * answers.length);
-    const response = answers[randomIndex]?.answer || "Sorry, dumbass say what?";
+    const response = answers[randomIndex]?.answer || defaults.didNotUnderstand;
     return {
         answer: response,
         intent: result.intent
     };
 }
 
-console.log("Welcome! Have a chat with Brian the Insufferable");
+console.log(`Welcome! Have a chat with ${defaults.botName}`);
 
 // main function
 (async() => {
@@ -65,7 +67,7 @@ console.log("Welcome! Have a chat with Brian the Insufferable");
         console.log("Brian: " + response.answer);
         console.log();
 
-        if (response.intent == 'greetings.bye') {
+        if (response.intent == modes.greeting.bye) {
             break;
         }
     }
