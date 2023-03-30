@@ -51,9 +51,7 @@ async function getResponse(humanInput) {
 }
 
 (async() => {
-
     while (true) {
-
         const humanInput = await prompts({
             type: "text",
             name: "input",
