@@ -50,6 +50,9 @@ async function getResponse(humanInput) {
     }
 }
 
+console.log("Welcome! Have a chat with Brian the Insufferable")
+
+// main function
 (async() => {
     while (true) {
         const humanInput = await prompts({
@@ -59,7 +62,7 @@ async function getResponse(humanInput) {
         })
 
         const response = await getResponse(humanInput.input)
-        console.log("Bot: " + response.answer)
+        console.log("Brian: " + response.answer)
         console.log()
 
         if (response.intent == 'greetings.bye') {
