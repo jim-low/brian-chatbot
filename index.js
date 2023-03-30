@@ -50,7 +50,7 @@ async function getResponse(humanInput) {
     }
 }
 
-console.log("Welcome! Have a chat with Brian the Insufferable")
+console.log("Welcome! Have a chat with Brian the Insufferable");
 
 // main function
 (async() => {
