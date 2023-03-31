@@ -6,8 +6,7 @@ const MODES = {
     jokes: {
         deeznuts: "jokes.deeznuts",
         existentialCrisis: "jokes.existentialCrisis"
-    },
-    selfDestruct: "selfDestruct"
+    }
 };
 
 module.exports = MODES
