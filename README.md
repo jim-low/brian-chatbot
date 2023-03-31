@@ -9,6 +9,6 @@ All of these areas are highly suitable for the Brian ChatBot due to its amazing 
 that will leave you in tears of ~~pain~~ joy after you`ve poured your heart out to it.
 
 ## Node Modules
-1. [Compromise](https://github.com/spencermountain/compromise)
+1. [Node NLP](https://github.com/axa-group/nlp.js)
 2. [Sugar](https://www.npmjs.com/package/sugar#documentation)
 3. [dotenv](https://www.npmjs.com/package/dotenv)
