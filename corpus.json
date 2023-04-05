@@ -1,0 +1,35 @@
+{
+    "name": "Corpus",
+    "locale": "en-US",
+    "entities": {
+        "hero": {
+            "options": {
+                "spooderman": ["Spooder-man", "spooderman"],
+                "iron man": ["iron man", "ironman", "iron-man"],
+                "thor": ["thor"]
+            }
+        },
+        "food": {
+            "options": {
+                "burguer": ["Burguer"],
+                "pizza": ["Pizza"],
+                "pasta": ["Spaghetti", "Pasta"]
+            }
+        }
+    },
+    "data": [
+        {
+            "intent": "sawhero",
+            "utterances": [
+                "I saw @hero eating @food",
+                "I have seen @hero, he was eating @food"
+            ]
+        },
+        {
+            "intent": "wanteat",
+            "utterances": [
+                "I want to eat @food"
+            ]
+        }
+    ]
+}
