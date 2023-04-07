@@ -1,14 +1,18 @@
 {
-    "questions": [
+    "utterances": [
+        "hello, i am @name",
+        "hi i am @name",
+        "hi im @name",
+        "hi my name is @name",
+        "hello my name is @name",
         "hello",
-        "hi",
-        "howdy",
-        "Greetings"
+        "hi"
     ],
     "answers": [
-        "Hey there!",
+        "Hey there, {{name}}!",
+        "Hello, {{name}}!",
+        "Hi {{name}}",
         "Hello",
-        "Hi",
-        "Greetings"
+        "Hi"
     ]
 }
