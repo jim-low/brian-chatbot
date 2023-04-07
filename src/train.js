@@ -1,25 +1,5 @@
 import { dockStart } from '@nlpjs/basic';
-// import { NlpManager } from "node-nlp";
 import { readdirSync, readFileSync } from "fs";
-
-
-// loop through files, parse the string to object, pass to manager instance to train and process
-// this is for version 3
-// for (const file of files) {
-//     let data = readFileSync(`./intents/${file}`);
-//     data = JSON.parse(data);
-//     const intent = file.replace(".json", "");
-
-//     for (const question of data.questions) {
-//         manager.addDocument("en", question, intent);
-//     }
-
-//     for (const answer of data.answers) {
-//         manager.addAnswer("en", intent, answer);
-//     }
-// }
-
-// this is for version 4
 
 async function train_save(manager) { // train and save manager instance
     await manager.train();
@@ -53,6 +33,8 @@ async function train_save(manager) { // train and save manager instance
         for (const answer of data.answers) {
             manager.addAnswer('en', intent, answer)
         }
+
+        manager.addNerAfterLastCondition('en', 'name', ['am', 'im', 'is']); // this is temporary, just like our sufferings
 
         // TODO: add word conditions to extract context
     }
