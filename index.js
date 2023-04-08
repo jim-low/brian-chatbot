@@ -11,13 +11,13 @@ const data = readFileSync('model.nlp', 'utf8')
 const manager = new NlpManager();
 manager.import(data);
 
+const context = {}; // put context here to remember variables
 rl.setPrompt("You: ");
 rl.prompt();
 rl.on("line", async function (line) {
-    const context = {};
     const response = await manager.process("en", line, context);
-    // const result = await manager.process('en', response, context);
     console.log(`Bot: ${response.answer}`);
+    console.log(context);
     rl.prompt()
 }).on("close", function () {
     process.exit(0);
