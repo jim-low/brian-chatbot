@@ -13,7 +13,8 @@ async function train_save(manager) { // train and save manager instance
         settings: {
             nlp: {
                 forceNER: true,
-                languages: ['en']
+                languages: ['en'],
+                executeActionsBeforeAnswers: true
             },
         },
         use: ['Basic', 'LangEn']
@@ -21,23 +22,25 @@ async function train_save(manager) { // train and save manager instance
     const manager = dock.get('nlp');
     const files = readdirSync("./intents"); // read intent files in intents folder
 
-    for (const file of files) {
-        let data = readFileSync(`./intents/${file}`)
-        data = JSON.parse(data)
-        const intent = file.replace(".json", "")
+    // for (const file of files) {
+    //     let data = readFileSync(`./intents/${file}`)
+    //     data = JSON.parse(data)
+    //     const intent = file.replace(".json", "")
 
-        for (const utterance of data.utterances) {
-            manager.addDocument('en', utterance, intent);
-        }
+    //     for (const utterance of data.utterances) {
+    //         manager.addDocument('en', utterance, intent);
+    //     }
 
-        for (const answer of data.answers) {
-            manager.addAnswer('en', intent, answer)
-        }
+    //     for (const answer of data.answers) {
+    //         manager.addAnswer('en', intent, answer)
+    //     }
 
-        manager.addNerAfterLastCondition('en', 'name', ['am', 'im', 'is']); // this is temporary, just like our sufferings
+    //     // TODO: add word conditions to extract context
+    // }
 
-        // TODO: add word conditions to extract context
-    }
+    manager.addDocument('en', 'my name is @name', 'greetings.hello');
+    manager.addAnswer('en', 'greetings.hello', 'Fuck you {{name}}');
+    manager.addNerAfterLastCondition('en', 'name', ['am', 'im', 'name is']); // this is temporary, just like our sufferings
 
     train_save(manager);
 })();
