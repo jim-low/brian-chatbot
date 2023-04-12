@@ -20,6 +20,7 @@ rl.on("line", async function (line) {
     const response = await manager.process("en", line, context);
     console.log(`Bot: ${response.answer}`);
     console.log(response.intent);
+    console.log(context);
     console.log()
     rl.prompt()
 }).on("close", function () {
