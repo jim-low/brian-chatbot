@@ -9,10 +9,6 @@
         "hi"
     ],
     "answers": [
-        "Hey there, {{name}}!",
-        "Hello, {{name}}!",
-        "Hi {{name}}",
-        "Hello",
-        "Hi"
+        "Fuck you {{name}}"
     ]
 }
