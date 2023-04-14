@@ -1,0 +1,1066 @@
+{
+  "settings": {
+    "tag": "nlp",
+    "forceNER": true,
+    "languages": [
+      "en"
+    ],
+    "executeActionsBeforeAnswers": true,
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "en"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "en": {
+        "settings": {
+          "locale": "en",
+          "trainByDomain": false,
+          "tag": "domain-manager-en",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "goodby": {
+            "intent": "greetings.bye",
+            "domain": "default"
+          },
+          "bye,care,take": {
+            "intent": "greetings.bye",
+            "domain": "default"
+          },
+          "later,see,you": {
+            "intent": "greetings.bye",
+            "domain": "default"
+          },
+          "bye,for,now": {
+            "intent": "greetings.bye",
+            "domain": "default"
+          },
+          "bye": {
+            "intent": "greetings.bye",
+            "domain": "default"
+          },
+          "go,i,must": {
+            "intent": "greetings.bye",
+            "domain": "default"
+          },
+          "@name,am,hello,i": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
+          "@name,am,hi,i": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
+          "@name,hi,im": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
+          "@name,hi,is,my,name": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
+          "@name,hello,is,my,name": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
+          "hello": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
+          "hi": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
+          "candic,is,who": {
+            "intent": "jokes.deeznutz",
+            "domain": "default"
+          },
+          "diz,is,who": {
+            "intent": "jokes.deeznutz",
+            "domain": "default"
+          },
+          "stair,what": {
+            "intent": "jokes.deeznutz",
+            "domain": "default"
+          },
+          "is,sawcon,where": {
+            "intent": "jokes.deeznutz",
+            "domain": "default"
+          },
+          "are,sugondes,what": {
+            "intent": "jokes.deeznutz",
+            "domain": "default"
+          },
+          "is,ligma,what": {
+            "intent": "jokes.deeznutz",
+            "domain": "default"
+          },
+          "is,sugma,what": {
+            "intent": "jokes.deeznutz",
+            "domain": "default"
+          },
+          "@age,am,i,old,year": {
+            "intent": "greetings.age",
+            "domain": "default"
+          },
+          "@botnam,be,name,will,you": {
+            "intent": "yourName.assign",
+            "domain": "default"
+          },
+          "@botnam,is,name,your": {
+            "intent": "yourName.assign",
+            "domain": "default"
+          },
+          "is,name,what,your": {
+            "intent": "yourName.inquire",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "greetings.bye": "default",
+          "greetings.hello": "default",
+          "jokes.deeznutz": "default",
+          "greetings.age": "default",
+          "yourName.assign": "default",
+          "yourName.inquire": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "goodbye",
+            "intent": "greetings.bye"
+          },
+          {
+            "domain": "default",
+            "utterance": "bye take care",
+            "intent": "greetings.bye"
+          },
+          {
+            "domain": "default",
+            "utterance": "see you later",
+            "intent": "greetings.bye"
+          },
+          {
+            "domain": "default",
+            "utterance": "bye for now",
+            "intent": "greetings.bye"
+          },
+          {
+            "domain": "default",
+            "utterance": "bye",
+            "intent": "greetings.bye"
+          },
+          {
+            "domain": "default",
+            "utterance": "i must go",
+            "intent": "greetings.bye"
+          },
+          {
+            "domain": "default",
+            "utterance": "hello, i am @name",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi i am @name",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi im @name",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi my name is @name",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "hello my name is @name",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "hello",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "who is Candice?",
+            "intent": "jokes.deeznutz"
+          },
+          {
+            "domain": "default",
+            "utterance": "who is Diz?",
+            "intent": "jokes.deeznutz"
+          },
+          {
+            "domain": "default",
+            "utterance": "what stairs?",
+            "intent": "jokes.deeznutz"
+          },
+          {
+            "domain": "default",
+            "utterance": "where is Sawcon?",
+            "intent": "jokes.deeznutz"
+          },
+          {
+            "domain": "default",
+            "utterance": "what are Sugondese?",
+            "intent": "jokes.deeznutz"
+          },
+          {
+            "domain": "default",
+            "utterance": "what is Ligma?",
+            "intent": "jokes.deeznutz"
+          },
+          {
+            "domain": "default",
+            "utterance": "what is Sugma?",
+            "intent": "jokes.deeznutz"
+          },
+          {
+            "domain": "default",
+            "utterance": "i am @age years old",
+            "intent": "greetings.age"
+          },
+          {
+            "domain": "default",
+            "utterance": "You will be named @botName",
+            "intent": "yourName.assign"
+          },
+          {
+            "domain": "default",
+            "utterance": "Your name is @botName",
+            "intent": "yourName.assign"
+          },
+          {
+            "domain": "default",
+            "utterance": "What is your name?",
+            "intent": "yourName.inquire"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "en",
+              "tag": "nlu-en",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "goodby": 1,
+              "bye": 1,
+              "take": 1,
+              "care": 1,
+              "see": 1,
+              "you": 1,
+              "later": 1,
+              "for": 1,
+              "now": 1,
+              "i": 1,
+              "must": 1,
+              "go": 1,
+              "hello": 1,
+              "am": 1,
+              "@name": 1,
+              "hi": 1,
+              "im": 1,
+              "my": 1,
+              "name": 1,
+              "is": 1,
+              "who": 1,
+              "candic": 1,
+              "diz": 1,
+              "what": 1,
+              "stair": 1,
+              "where": 1,
+              "sawcon": 1,
+              "are": 1,
+              "sugondes": 1,
+              "ligma": 1,
+              "sugma": 1,
+              "@age": 1,
+              "year": 1,
+              "old": 1,
+              "will": 1,
+              "be": 1,
+              "@botnam": 1,
+              "your": 1
+            },
+            "intents": {
+              "greetings.bye": 1,
+              "greetings.hello": 1,
+              "jokes.deeznutz": 1,
+              "greetings.age": 1,
+              "yourName.assign": 1,
+              "yourName.inquire": 1
+            },
+            "intentFeatures": {
+              "greetings.bye": {
+                "goodby": 1,
+                "bye": 1,
+                "take": 1,
+                "care": 1,
+                "see": 1,
+                "you": 1,
+                "later": 1,
+                "for": 1,
+                "now": 1,
+                "i": 1,
+                "must": 1,
+                "go": 1
+              },
+              "greetings.hello": {
+                "hello": 1,
+                "i": 1,
+                "am": 1,
+                "@name": 1,
+                "hi": 1,
+                "im": 1,
+                "my": 1,
+                "name": 1,
+                "is": 1
+              },
+              "jokes.deeznutz": {
+                "who": 1,
+                "is": 1,
+                "candic": 1,
+                "diz": 1,
+                "what": 1,
+                "stair": 1,
+                "where": 1,
+                "sawcon": 1,
+                "are": 1,
+                "sugondes": 1,
+                "ligma": 1,
+                "sugma": 1
+              },
+              "greetings.age": {
+                "i": 1,
+                "am": 1,
+                "@age": 1,
+                "year": 1,
+                "old": 1
+              },
+              "yourName.assign": {
+                "you": 1,
+                "will": 1,
+                "be": 1,
+                "name": 1,
+                "@botnam": 1,
+                "your": 1,
+                "is": 1
+              },
+              "yourName.inquire": {
+                "what": 1,
+                "is": 1,
+                "your": 1,
+                "name": 1
+              }
+            },
+            "featuresToIntent": {
+              "goodby": [
+                "greetings.bye"
+              ],
+              "bye": [
+                "greetings.bye"
+              ],
+              "take": [
+                "greetings.bye"
+              ],
+              "care": [
+                "greetings.bye"
+              ],
+              "see": [
+                "greetings.bye"
+              ],
+              "you": [
+                "greetings.bye",
+                "yourName.assign"
+              ],
+              "later": [
+                "greetings.bye"
+              ],
+              "for": [
+                "greetings.bye"
+              ],
+              "now": [
+                "greetings.bye"
+              ],
+              "i": [
+                "greetings.bye",
+                "greetings.hello",
+                "greetings.age"
+              ],
+              "must": [
+                "greetings.bye"
+              ],
+              "go": [
+                "greetings.bye"
+              ],
+              "hello": [
+                "greetings.hello"
+              ],
+              "am": [
+                "greetings.hello",
+                "greetings.age"
+              ],
+              "@name": [
+                "greetings.hello"
+              ],
+              "hi": [
+                "greetings.hello"
+              ],
+              "im": [
+                "greetings.hello"
+              ],
+              "my": [
+                "greetings.hello"
+              ],
+              "name": [
+                "greetings.hello",
+                "yourName.assign",
+                "yourName.inquire"
+              ],
+              "is": [
+                "greetings.hello",
+                "jokes.deeznutz",
+                "yourName.assign",
+                "yourName.inquire"
+              ],
+              "who": [
+                "jokes.deeznutz"
+              ],
+              "candic": [
+                "jokes.deeznutz"
+              ],
+              "diz": [
+                "jokes.deeznutz"
+              ],
+              "what": [
+                "jokes.deeznutz",
+                "yourName.inquire"
+              ],
+              "stair": [
+                "jokes.deeznutz"
+              ],
+              "where": [
+                "jokes.deeznutz"
+              ],
+              "sawcon": [
+                "jokes.deeznutz"
+              ],
+              "are": [
+                "jokes.deeznutz"
+              ],
+              "sugondes": [
+                "jokes.deeznutz"
+              ],
+              "ligma": [
+                "jokes.deeznutz"
+              ],
+              "sugma": [
+                "jokes.deeznutz"
+              ],
+              "@age": [
+                "greetings.age"
+              ],
+              "year": [
+                "greetings.age"
+              ],
+              "old": [
+                "greetings.age"
+              ],
+              "will": [
+                "yourName.assign"
+              ],
+              "be": [
+                "yourName.assign"
+              ],
+              "@botnam": [
+                "yourName.assign"
+              ],
+              "your": [
+                "yourName.assign",
+                "yourName.inquire"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "en",
+                "tag": "nlu-en",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "goodby",
+                "bye",
+                "take",
+                "care",
+                "see",
+                "you",
+                "later",
+                "for",
+                "now",
+                "i",
+                "must",
+                "go",
+                "hello",
+                "am",
+                "@name",
+                "hi",
+                "im",
+                "my",
+                "name",
+                "is",
+                "who",
+                "candic",
+                "diz",
+                "what",
+                "stair",
+                "where",
+                "sawcon",
+                "are",
+                "sugondes",
+                "ligma",
+                "sugma",
+                "@age",
+                "year",
+                "old",
+                "will",
+                "be",
+                "@botnam",
+                "your"
+              ],
+              "intents": [
+                "greetings.bye",
+                "greetings.hello",
+                "jokes.deeznutz",
+                "greetings.age",
+                "yourName.assign",
+                "yourName.inquire"
+              ],
+              "perceptrons": [
+                [
+                  9.584921836853027,
+                  9.072129249572754,
+                  0.3617306351661682,
+                  0.3617306351661682,
+                  3.751087188720703,
+                  2.14145565032959,
+                  3.751087188720703,
+                  0.36381906270980835,
+                  0.36381906270980835,
+                  1.5325508117675781,
+                  4.046078681945801,
+                  4.046078681945801,
+                  -4.587611675262451,
+                  -2.513030529022217,
+                  -1.9667785167694092,
+                  -4.579723834991455,
+                  -0.4070492088794708,
+                  -0.2257523536682129,
+                  -1.914829969406128,
+                  -2.796476125717163,
+                  -1.246930718421936,
+                  -0.6243069767951965,
+                  -0.6097663640975952,
+                  -2.918576955795288,
+                  -1.7236862182617188,
+                  -0.9271945357322693,
+                  -0.9271945357322693,
+                  -0.8714694380760193,
+                  -0.8714694380760193,
+                  -0.1427733302116394,
+                  -0.10217967629432678,
+                  -1.2245005369186401,
+                  -1.2245005369186401,
+                  -1.2245005369186401,
+                  -1.608962059020996,
+                  -1.608962059020996,
+                  -1.6630007028579712,
+                  -0.03532140702009201,
+                  4.656375843725853
+                ],
+                [
+                  -3.2064430713653564,
+                  -3.2030975818634033,
+                  -0.4842320680618286,
+                  -0.4842320680618286,
+                  -0.909774661064148,
+                  -1.4829802513122559,
+                  -0.909774661064148,
+                  -0.45634475350379944,
+                  -0.45634475350379944,
+                  -1.1078858375549316,
+                  -1.0967048406600952,
+                  -1.0967048406600952,
+                  10.759590148925781,
+                  -0.01060250960290432,
+                  1.3809561729431152,
+                  10.688945770263672,
+                  -0.94012850522995,
+                  1.10236656665802,
+                  -0.24355174601078033,
+                  -1.9706872701644897,
+                  -0.9877383708953857,
+                  -0.44832664728164673,
+                  -0.40840214490890503,
+                  -2.3081953525543213,
+                  -0.9985731840133667,
+                  -0.6724713444709778,
+                  -0.6724713444709778,
+                  -0.5044627785682678,
+                  -0.5044627785682678,
+                  -0.21594788134098053,
+                  -0.17346970736980438,
+                  -1.1640427112579346,
+                  -1.1640427112579346,
+                  -1.1640427112579346,
+                  -0.49358707666397095,
+                  -0.49358707666397095,
+                  -1.0799978971481323,
+                  -0.741767168045044,
+                  3.3194564180048225
+                ],
+                [
+                  -2.025486946105957,
+                  -2.042915105819702,
+                  -0.4786287844181061,
+                  -0.4786287844181061,
+                  -0.6703798770904541,
+                  -0.9661210179328918,
+                  -0.6703798770904541,
+                  -0.44517064094543457,
+                  -0.44517064094543457,
+                  -1.2312456369400024,
+                  -0.5267990231513977,
+                  -0.5267990231513977,
+                  -2.0238447189331055,
+                  -0.6580742597579956,
+                  -1.2088208198547363,
+                  -2.025556802749634,
+                  -0.20218008756637573,
+                  -0.7725481390953064,
+                  -7.069953918457031,
+                  4.6252312660217285,
+                  5.086043357849121,
+                  2.539757490158081,
+                  2.545994997024536,
+                  6.383313179016113,
+                  5.85662841796875,
+                  3.812870740890503,
+                  3.812870740890503,
+                  2.9366261959075928,
+                  2.9366261959075928,
+                  1.2524713277816772,
+                  1.24824857711792,
+                  -0.44751274585723877,
+                  -0.44751274585723877,
+                  -0.44751274585723877,
+                  -0.2066950500011444,
+                  -0.2066950500011444,
+                  -1.2257444858551025,
+                  -5.9684834480285645,
+                  2.030206056287763
+                ],
+                [
+                  -0.16884377598762512,
+                  -0.26950597763061523,
+                  -0.07491132616996765,
+                  -0.07491132616996765,
+                  -0.08784551918506622,
+                  -0.16746492683887482,
+                  -0.08784551918506622,
+                  -0.06483086943626404,
+                  -0.06483086943626404,
+                  1.0978366136550903,
+                  -0.6379345655441284,
+                  -0.6379345655441284,
+                  -1.0418914556503296,
+                  1.7452304363250732,
+                  -2.025630235671997,
+                  -0.9775640368461609,
+                  0,
+                  0,
+                  -0.1767905205488205,
+                  -0.15807628631591797,
+                  -0.027096375823020935,
+                  -0.012593490071594715,
+                  -0.009650282561779022,
+                  -0.11034085601568222,
+                  -0.028369195759296417,
+                  -0.008557477034628391,
+                  -0.008557477034628391,
+                  -0.0197730902582407,
+                  -0.0197730902582407,
+                  -0.001276907860301435,
+                  -0.0004906306858174503,
+                  3.7781169414520264,
+                  3.7781169414520264,
+                  3.7781169414520264,
+                  -0.05398421734571457,
+                  -0.05398421734571457,
+                  -0.11916650086641312,
+                  -0.09655506163835526,
+                  0.10829676322690455
+                ],
+                [
+                  -0.24230852723121643,
+                  -0.34190234541893005,
+                  -0.11139864474534988,
+                  -0.11139864474534988,
+                  -0.7533022165298462,
+                  0.47203055024147034,
+                  -0.7533022165298462,
+                  -0.0887664332985878,
+                  -0.0887664332985878,
+                  -0.2074621468782425,
+                  -0.09899308532476425,
+                  -0.09899308532476425,
+                  -0.5819984674453735,
+                  -0.08889760076999664,
+                  -1.2980073690414429,
+                  -0.6831298470497131,
+                  -0.024779923260211945,
+                  -1.1973026990890503,
+                  2.4375710487365723,
+                  0.48819711804389954,
+                  -0.3470894396305084,
+                  -0.17594775557518005,
+                  -0.17097172141075134,
+                  -5.271970272064209,
+                  -0.001281381119042635,
+                  -0.25840070843696594,
+                  -0.25840070843696594,
+                  0,
+                  0,
+                  -0.034662213176488876,
+                  -0.015032041817903519,
+                  -0.02478110045194626,
+                  -0.02478110045194626,
+                  -0.02478110045194626,
+                  1.2661263942718506,
+                  1.2661263942718506,
+                  8.838379859924316,
+                  2.38433837890625,
+                  0.035066539874970146
+                ],
+                [
+                  -0.05005630478262901,
+                  -0.14661240577697754,
+                  -0.04242722690105438,
+                  -0.04242722690105438,
+                  -0.041834235191345215,
+                  -0.26285240054130554,
+                  -0.041834235191345215,
+                  -0.03662867471575737,
+                  -0.03662867471575737,
+                  -0.09780356287956238,
+                  -0.037054240703582764,
+                  -0.037054240703582764,
+                  -0.5294868350028992,
+                  -0.04215095937252045,
+                  -1.0289641618728638,
+                  -0.4994989335536957,
+                  -0.015615488402545452,
+                  -0.934912383556366,
+                  5.021904945373535,
+                  -0.22482143342494965,
+                  -0.35969552397727966,
+                  -0.15729375183582306,
+                  -0.1562865525484085,
+                  5.2122802734375,
+                  -2.601205348968506,
+                  -0.16574427485466003,
+                  -0.16574427485466003,
+                  -1.3605316877365112,
+                  -1.3605316877365112,
+                  -2.449791431427002,
+                  -2.4386322498321533,
+                  0,
+                  0,
+                  0,
+                  -0.203164204955101,
+                  -0.203164204955101,
+                  -8.090389251708984,
+                  6.194605827331543,
+                  -2.4409160642327588
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "en",
+        "goodbye"
+      ],
+      [
+        "en",
+        "bye take care"
+      ],
+      [
+        "en",
+        "see you later"
+      ],
+      [
+        "en",
+        "bye for now"
+      ],
+      [
+        "en",
+        "bye"
+      ],
+      [
+        "en",
+        "i must go"
+      ],
+      [
+        "en",
+        "hello, i am @name"
+      ],
+      [
+        "en",
+        "hi i am @name"
+      ],
+      [
+        "en",
+        "hi im @name"
+      ],
+      [
+        "en",
+        "hi my name is @name"
+      ],
+      [
+        "en",
+        "hello my name is @name"
+      ],
+      [
+        "en",
+        "hello"
+      ],
+      [
+        "en",
+        "hi"
+      ],
+      [
+        "en",
+        "who is Candice?"
+      ],
+      [
+        "en",
+        "who is Diz?"
+      ],
+      [
+        "en",
+        "what stairs?"
+      ],
+      [
+        "en",
+        "where is Sawcon?"
+      ],
+      [
+        "en",
+        "what are Sugondese?"
+      ],
+      [
+        "en",
+        "what is Ligma?"
+      ],
+      [
+        "en",
+        "what is Sugma?"
+      ],
+      [
+        "en",
+        "i am @age years old"
+      ],
+      [
+        "en",
+        "You will be named @botName"
+      ],
+      [
+        "en",
+        "Your name is @botName"
+      ],
+      [
+        "en",
+        "What is your name?"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner"
+    },
+    "rules": {
+      "en": {
+        "name": {
+          "name": "name",
+          "type": "trim",
+          "rules": [
+            {
+              "type": "afterLast",
+              "words": [
+                "am",
+                "im",
+                "name is"
+              ],
+              "options": {}
+            }
+          ]
+        },
+        "age": {
+          "name": "age",
+          "type": "trim",
+          "rules": [
+            {
+              "type": "beforeFirst",
+              "words": [
+                "years old",
+                "years"
+              ],
+              "options": {}
+            }
+          ]
+        },
+        "botName": {
+          "name": "botName",
+          "type": "trim",
+          "rules": [
+            {
+              "type": "afterLast",
+              "words": [
+                "name is",
+                "named"
+              ],
+              "options": {}
+            }
+          ]
+        }
+      }
+    }
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {
+      "en": {
+        "greetings.bye": [
+          {
+            "answer": "bye bye {{name}}"
+          }
+        ],
+        "greetings.hello": [
+          {
+            "answer": "Fuck you {{name}}"
+          }
+        ],
+        "jokes.deeznutz": [
+          {
+            "answer": "CANDICE NUTZZZ FIT IN UR MOUTH"
+          },
+          {
+            "answer": "Diz NUTZZZ BOII"
+          },
+          {
+            "answer": "STAIR AT DEZZ NUTZZZ"
+          },
+          {
+            "answer": "SAWCON DEZZ NUTZZZZ"
+          },
+          {
+            "answer": "SUGONDESE NUTZZZ BOIIIII"
+          },
+          {
+            "answer": "LIGMA NUTZZZ BOIII"
+          },
+          {
+            "answer": "SUGMA NUTZZZ BOIII"
+          }
+        ],
+        "greetings.age": [
+          {
+            "answer": "good to know you are {{number}} years old"
+          }
+        ],
+        "yourName.assign": [
+          {
+            "answer": "Okay, i will be named {{botName}}."
+          }
+        ],
+        "yourName.inquire": [
+          {
+            "answer": "My name is {{botName}}"
+          }
+        ]
+      }
+    }
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {
+    "greetings.hello": {
+      "name": {
+        "intent": "greetings.hello",
+        "entity": "name",
+        "mandatory": false,
+        "locales": {}
+      }
+    },
+    "greetings.age": {
+      "age": {
+        "intent": "greetings.age",
+        "entity": "age",
+        "mandatory": false,
+        "locales": {}
+      }
+    },
+    "yourName.assign": {
+      "botName": {
+        "intent": "yourName.assign",
+        "entity": "botName",
+        "mandatory": false,
+        "locales": {}
+      }
+    }
+  }
+}

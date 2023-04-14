@@ -1,33 +1,18 @@
 {
-  "name": "brian-chatbot",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "train": "node src/train.js",
-    "start": "node index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jim-low/brian-chatbot.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jim-low/brian-chatbot/issues"
-  },
-  "homepage": "https://github.com/jim-low/brian-chatbot#readme",
-  "description": "",
-  "dependencies": {
-    "@nlpjs/basic": "^4.26.1",
-    "compromise": "^14.8.2",
-    "dotenv": "^16.0.3",
-    "node-nlp": "^4.26.1",
-    "prompt-sync": "^4.2.0",
-    "prompts": "^2.4.2",
-    "sugar": "^2.0.6",
-    "telebot": "^1.4.1"
-  },
-  "type": "module"
+    "name": "botkit-brian-the insufferable",
+    "version": "1.0.0",
+    "description": "",
+    "main": "bot.js",
+    "scripts": {
+        "start": "node bot.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "botbuilder-adapter-web": "^1.0.10",
+        "botbuilder-storage-mongodb": "^0.9.5",
+        "botkit": "^4.15.0",
+        "botkit-plugin-cms": "^1.0.3",
+        "compromise": "^14.8.2",
+        "dotenv": "^7.0.0"
+    }
 }
