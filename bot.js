@@ -3,66 +3,10 @@
 // |__) \__/  |  |  \ |  |  
 
 // This is the main file for the Brian the Insufferable bot.
-
-// Import Botkit's core features
-const { Botkit } = require('botkit');
-const { BotkitCMSHelper } = require('botkit-plugin-cms');
+const controller = require('./bot/botkit/init.js');
 const nlp = require('compromise');
+const context = require('./bot/botkit/context.js');
 
-// Import a platform-specific adapter for web.
-
-const { WebAdapter } = require('botbuilder-adapter-web');
-
-const { MongoDbStorage } = require('botbuilder-storage-mongodb');
-
-// Load process.env values from .env file
-require('dotenv').config();
-
-let storage = null;
-if (process.env.MONGO_URI) {
-    storage = mongoStorage = new MongoDbStorage({
-        url : process.env.MONGO_URI,
-    });
-}
-
-
-const adapter = new WebAdapter({});
-
-
-const controller = new Botkit({
-    webhook_uri: '/api/messages',
-
-    adapter: adapter,
-
-    storage
-});
-
-if (process.env.CMS_URI) {
-    controller.usePlugin(new BotkitCMSHelper({
-        uri: process.env.CMS_URI,
-        token: process.env.CMS_TOKEN,
-    }));
-}
-
-const context = { 
-    botName: "Brian the Insufferable",
-    jokes: {
-        deeznutz: {
-            "sawcon": "SAWCON DEEZ NUTZZZZZZZZZZ",
-            "stairs": "STAIR AT DEEZ NUTZZZZZZZZZZZZ",
-            "ligma": "LIGMA NUTZZZZZZZZZZ",
-            "sugma": "SUGMA NUTZZZZZZZZZ",
-            "sugon": "SUGON DEEZ NUTZZZZZZZZZZZZZZ",
-        },
-        fun_facts: [
-            "Have you heard of Ligma? It seems to be a pretty serious disease.",
-            "Have you been to Sawcon? It was really fun!",
-            "Have you walked those stairs before? There were some rumours going on about it.",
-            "Have you heard of Sugma? A lot of athletes have been going there lately!",
-            "Have you seen a Sugon? The government appears to be keeping it a secret...",
-        ]
-    }
-}
 // Once the bot has booted up its internal services, you can use them to do stuff.
 controller.ready(() => {
 
@@ -87,6 +31,7 @@ controller.ready(() => {
         await bot.reply(message, `Hello! My name is ${context.botName}. How can I help you?`)
     })
 
+    // introduction / greetings / small talk
     controller.hears(['halo', 'hallo', 'hello', 'hi', 'greetings'], 'message', async (bot, message) => {
         await bot.reply(message, "Hello, whats your name?");
     })
@@ -98,8 +43,8 @@ controller.ready(() => {
     controller.hears(message => {
 
         const doc = nlp(message.text);
-        if (doc.has("#Person")) {
-            context.userName = doc.match("#Person").toTitleCase().text();
+        if (doc.has("#ProperNoun")) {
+            context.userName = doc.match("#ProperNoun").toTitleCase().text();
             return true;
         }
         return false;
@@ -108,6 +53,15 @@ controller.ready(() => {
         await bot.reply(message, `Fuck you, ${context.userName}`);
     })
 
+    controller.hears('nice to meet you', 'message', async (bot, message) => {
+        await bot.reply(message, "Fuck you. How can I help?")
+    })
+
+    controller.hears('how do you do', 'message', async (bot, message) => {
+        await bot.reply(message, 'I am doing great! I went to Sawcon last week. How can I help you?')
+    })
+
+    // inquiries / services
     controller.hears(['what products do you have', 'show me your products'], 'message', async (bot, message) => {
         await bot.reply(message, {
             text: "What would you like to see?",
@@ -140,14 +94,6 @@ controller.ready(() => {
         })
     })
 
-    controller.hears('nice to meet you', 'message', async (bot, message) => {
-        await bot.reply(message, "Fuck you. How can I help?")
-    })
-
-    controller.hears('how do you do', 'message', async (bot, message) => {
-        await bot.reply(message, 'I am doing great! I went to Sawcon last week. How can I help you?')
-    })
-
     controller.hears('what can you do', 'message', async (bot, message) => {
         await bot.reply(message, `I am a chatbot titled ${context.botName} with the insufferable personality of Brian from RST2 Group 4.`)
         await bot.reply(message, 'I am able to have a painful conversation with you as well as recommend and provide you with information on certain products.');
@@ -170,9 +116,14 @@ controller.ready(() => {
         });
     })
 
+    // existential crisis
     controller.hears('why am i even here', 'message', async (bot, message) => {
         await bot.reply(message, 'Just to suffer, of course');
     })
+
+    controller.hears(['screw u', 'screw you'], 'message', async (bot, message) => await bot.reply(message, "no u"));
+
+    controller.hears('let me explore around a bit', 'message', async (bot, message) => await bot.reply(message, "You boring sack of sh-"));
 
     // deez nutz
     controller.hears('give me a fun fact', 'message', async (bot, message) => {
@@ -191,7 +142,4 @@ controller.ready(() => {
         await bot.reply(message, context.jokes.deeznutz[context.deeznut]);
         await bot.reply(message, 'got em');
     })
-
-    controller.hears('screw u', 'message', async (bot, message) => await bot.reply(message, "no u"));
-    controller.hears('let me explore around a bit', 'message', async (bot, message) => await bot.reply(message, "You boring sack of sh-"));
 });
