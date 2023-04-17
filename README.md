@@ -10,8 +10,8 @@ This bot is powered by [a folder full of modules](https://github.com/howdyai/bot
 Edit the samples, and add your own in the [features/](features/) folder.
 
 To do interactions:
-Repairing Services + Warranty information
-Product Searching (What item are you looking for)
-(What do you do)(done already)
-operation hours
+Repairing Services + Warranty information <br>
+Product Searching (What item are you looking for) <br>
+(What do you do)(done already) <br>
+operation hours <br>
 
