@@ -48,9 +48,13 @@ module.exports = function(controller) {
                     payload: "Show me your products!"
                 },
                 {
+                    title: "Search for product",
+                    payload: "I want to look for a product"
+                },
+                {
                     title: "Cancel",
                     payload: "Let me explore around a bit"
-                }
+                },
             ]
         });
     })
