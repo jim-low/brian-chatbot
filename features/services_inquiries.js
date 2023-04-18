@@ -31,6 +31,27 @@ module.exports = function(controller) {
         })
     })
 
+    controller.hears('do you have repair services', 'message', async (bot, message) => {
+        await bot.reply(message, 'We have a 100% satisfaction guaranteed policy that allows you to opt for a 100% refund or a change in product.');
+        await bot.reply(message, 'Our 100% satisfaction guaranteed policy is only available if it meets our Terms and Conditions.');
+        await bot.reply(message, {
+            quick_replies: [
+                {
+                    title: "Terms and Conditions",
+                    payload: "Let me see your Terms and Conditions"
+                },
+                {
+                    title: "100% refund",
+                    payload: "I would like the 100% refund"
+                },
+                {
+                    title: "Change product",
+                    payload: "I would like to change products"
+                }
+            ]
+        })
+    })
+
     controller.hears(['do you have warranty', 'how long is your warranty'], 'message', async (bot, message) => {
         await bot.reply(message, 'this feature is not implemented yet');
     })
