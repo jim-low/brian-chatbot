@@ -33,7 +33,7 @@ module.exports = function(controller) {
         await bot.reply(message, 'I am doing great! I went to Sawcon last week. How can I help you?')
     })
 
-    controller.hears('what can you do', 'message', async (bot, message) => {
+    controller.hears(['what can you do', 'what do you do', 'what you do'], 'message', async (bot, message) => {
         await bot.reply(message, `I am a chatbot titled ${context.botName} with the insufferable personality of Brian from RST2 Group 4.`)
         await bot.reply(message, 'I am able to have a painful conversation with you as well as recommend and provide you with information on certain products.');
         await bot.reply(message, {
