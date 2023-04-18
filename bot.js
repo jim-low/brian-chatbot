@@ -4,8 +4,6 @@
 
 // This is the main file for the Brian the Insufferable bot.
 const controller = require('./bot/botkit/init.js');
-const nlp = require('compromise');
-const context = require('./bot/botkit/context.js');
 
 // Once the bot has booted up its internal services, you can use them to do stuff.
 controller.ready(() => {
