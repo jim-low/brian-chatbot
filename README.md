@@ -9,7 +9,7 @@ To complete the configuration of this bot, make sure to update the included `.en
 This bot is powered by [a folder full of modules](https://github.com/howdyai/botkit/blob/main/packages/docs/core.md#organize-your-bot-code). 
 Edit the samples, and add your own in the [features/](features/) folder.
 
-To do interactions:
+To do interactions:<br>
 Repairing Services + Warranty information <br>
 Product Searching (What item are you looking for) <br>
 (What do you do)(done already) <br>
