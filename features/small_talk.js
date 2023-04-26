@@ -15,7 +15,6 @@ module.exports = function(controller) {
 
         const doc = nlp(message.text);
         if (doc.has("name") && doc.has("#Noun") || doc.has("#Singular")) {
-            console.log(doc.match("#Noun").text(), doc.match("#Singular").text());
             context.userName = doc.match("#ProperNoun").toTitleCase().text();
             return true;
         }
