@@ -3,12 +3,17 @@ const nlp = require('compromise');
 
 module.exports = function(controller) {
 
+    
     controller.on('channel_join', async (bot, message) => {
         await bot.reply(message, `Hello! My name is ${context.botName}. How can I help you?`)
     })
 
     controller.hears(['halo', 'hallo', 'hello', 'hi', 'greetings'], 'message', async (bot, message) => {
         await bot.reply(message, "Hello, whats your name?");
+    })
+
+    controller.hears('fuck you', 'message', async (bot, message) => {
+        await bot.reply(message, "Fuck you too");
     })
 
     controller.hears(message => {

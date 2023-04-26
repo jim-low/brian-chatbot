@@ -25,4 +25,35 @@ module.exports = function(controller) {
             await bot.reply(message, context.refundProduct);
         }
     })
+
+    controller.hears(['i do not have a warranty', 'no warranty'], 'message', async (bot, message) => {
+        await bot.reply(message, 'Then i am unable to help you with your problem.');
+    })
+
+    controller.hears(['i lost my warranty', 'warranty lost'], 'message', async (bot, message) => {
+        await bot.reply(message, 'That is not my problem.');
+    })
+
+    controller.hears(['i have a warranty', 'warranty'], 'message', async (bot, message) => {
+        await bot.reply(message, 'did you break something? Do you want to return something?');
+        context.isWarranty = true;
+    })
+
+    if (context.isWarranty == true){
+        controller.hears('yes', 'message', async (bot, message) => {
+            await bot.reply(message, 'Send the item with the warranty to your nearest Amway facility. If you are unsure, tell me which country you are from, i will try to send all the available facilities in your country.');
+            context.isWarranty = false;
+        })
+
+        controller.hears('no', 'message', async (bot, message) => {
+            await bot.reply(message, 'Then why are you telling me this?');
+            context.isWarranty = false;
+        })
+
+        controller.hears('', 'message', async (bot, message) => {
+            context.isWarranty = false;
+        })
+    }
+
+    
 }
