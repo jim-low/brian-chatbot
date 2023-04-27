@@ -12,10 +12,6 @@ module.exports = function(controller) {
         await bot.reply(message, "Hello, whats your name?");
     })
 
-    controller.hears('fuck you', 'message', async (bot, message) => {
-        await bot.reply(message, "Fuck you too");
-    })
-
     controller.hears(message => {
 
         const doc = nlp(message.text);
