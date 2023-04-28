@@ -36,6 +36,9 @@ module.exports = function(controller) {
 
     controller.hears(['i have a warranty', 'warranty', 'return product', 'return'], 'message', async (bot, message) => {
         await bot.reply(message, 'did you break something? Do you want to return something? Please send it to your nearest facility.');
+        //yes or no question
+        //if yes, asks for their country, save that country in that context.
+        //if no, remove context. 
     })
 
 

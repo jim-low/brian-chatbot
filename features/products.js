@@ -1,4 +1,6 @@
 const context = require('../bot/botkit/context.js');
+
+
 module.exports = function(controller) {
 
     controller.hears(['cooking','kitchenware','kitchen ware'], 'message', async (bot, message) => {
@@ -21,8 +23,11 @@ module.exports = function(controller) {
 
     controller.hears(['Electrical Appliances', 'Electronic'], 'message', async (bot, message) => {
         await bot.reply(message, 'Here are our products.');
-        await bot.reply(message, "1) Philips Food Processor");
-        await bot.reply(message, "The Philips Food Processor 7000 Series is the versatile solution for your kitchen needs. It comes with a few accessories");
+        await bot.reply(message,
+            `1) Philips Food Processor
+            <br><br>
+            The Philips Food Processor 7000 Series is the versatile solution for your kitchen needs. It comes with a few accessories`);
+        await bot.reply(message, "<img src=\"./images/atmosphere_drive.png\" alt=\"deez nuts\" width=\"400\" height=\"400\" />");
         await bot.reply(message, "2) Philips SpeedPro Vaccum Cleaner");
         await bot.reply(message, "Our 3-in-1 vacuum, mop and handheld system cleans hard floors and carpets efficiently with a powerful 360-degree suction nozzle that captures dust and dirt faster from all sides. Now in a beautiful champagne colour with an improved run time of 75 minutes (Eco Mode).");
     })
@@ -39,19 +44,8 @@ module.exports = function(controller) {
         await bot.reply(message, "Enjoy cleaner indoor air with the Atmosphere SKY Air Treatment System! Get rid of air pollutants from viruses to mildew with its triple filter air treatment system — removing up to 99.99% of particles as small as 0.0024 microns.");
     })
 
-    controller.hears('Vaccum', 'message', async (bot, message) => {
-        await bot.reply(message, 'Here are our products.');
+    controller.hears('Vacuum', 'message', async (bot, message) => {
         await bot.reply(message, "1) Philips SpeedPro Vaccum Cleaner");
         await bot.reply(message, "Our 3-in-1 vacuum, mop and handheld system cleans hard floors and carpets efficiently with a powerful 360-degree suction nozzle that captures dust and dirt faster from all sides. Now in a beautiful champagne colour with an improved run time of 75 minutes (Eco Mode).");
-    })
-
-    controller.hears(['filter', 'filtration'], async (bot, message) => {
-        await bot.reply(message, 'Here are our products related to filters.');
-        await bot.reply(message, "1) ESpring Water Treatment System");
-        await bot.reply(message, "The eSpring water filter gives your family peace of mind by providing clean and safe water on demand using cutting-edge technology. Truly convenient, it is also easy to use and maintain.");
-        await bot.reply(message, "2) ATMOSPHERE DRIVE");
-        await bot.reply(message, "Atmosphere DRIVE: “Clarity from Within” / The Atmosphere DRIVE Car Air Treatment System is a new and unique portable air purifier for your car. This filtration device helps provide cleaner air inside cars, helping you to have clarity and peace of mind whenever you’re on the road.");
-        await bot.reply(message, "3) ATMOSPHERE SKY");
-        await bot.reply(message, "Enjoy cleaner indoor air with the Atmosphere SKY Air Treatment System! Get rid of air pollutants from viruses to mildew with its triple filter air treatment system — removing up to 99.99% of particles as small as 0.0024 microns.");
     })
 }
