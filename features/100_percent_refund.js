@@ -9,7 +9,6 @@ module.exports = function(controller) {
     controller.hears(message => {
         const doc = nlp(message.text);
 
-        console.log(JSON.stringify(doc.json(), null, 2));
         if (doc.has("refund")) {
             context.refundHasMentionProduct = false
             if (doc.has("refund #Noun") || doc.has("refund the #Noun")) {
