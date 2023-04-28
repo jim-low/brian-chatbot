@@ -1,5 +1,5 @@
 module.exports = function(controller) {
-    controller.hears(['what products do you have', 'show me your products'], 'message', async (bot, message) => {
+    controller.hears(['what products do you have', 'show me your products', 'products'], 'message', async (bot, message) => {
         await bot.reply(message, {
             text: "What would you like to see?",
             quick_replies: [

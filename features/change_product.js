@@ -1,5 +1,5 @@
 module.exports = function(controller) {
-    controller.hears('i would like to change products', 'message', async (bot, message) => {
-        await bot.reply(message, 'well too bad, you\'re keeping it');
+    controller.hears(['i would like to change products', 'change product'], 'message', async (bot, message) => {
+        await bot.reply(message, 'Our terms does not allow users to trade or convert purchased products.');
     })
 }
