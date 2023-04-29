@@ -8,10 +8,6 @@ module.exports = function(controller) {
         await bot.reply(message, `Hello! My name is ${context.botName}. How can I help you?`)
     })
 
-    controller.hears(['halo', 'hallo', 'hello', 'hi', 'greetings'], 'message', async (bot, message) => {
-        await bot.reply(message, "Hello, whats your name?");
-    })
-
     controller.hears(message => {
 
         const doc = nlp(message.text);
@@ -23,6 +19,10 @@ module.exports = function(controller) {
 
     }, 'message', async (bot, message) => {
         await bot.reply(message, `Fuck you, ${context.userName}`);
+    })
+
+    controller.hears(['halo', 'hallo', 'hello', 'hi', 'greetings'], 'message', async (bot, message) => {
+        await bot.reply(message, "Hello, whats your name?");
     })
 
     controller.hears('nice to meet you', 'message', async (bot, message) => {
