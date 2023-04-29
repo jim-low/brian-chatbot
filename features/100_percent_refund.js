@@ -35,6 +35,19 @@ module.exports = function(controller) {
     })
 
     controller.hears(['i have a warranty', 'warranty', 'return product', 'return'], 'message', async (bot, message) => {
+            const originalMessage = 'i have a warranty'
+            const doc = nlp(originalMessage).sentences().toNegative()
+            if (doc.text() === originalMessage)
+            {
+                // there is a negation
+                console.log('it is a negation message')
+            }
+    
+            if (doc.text() !== originalMessage) {
+                console.log('it is not a negation message')
+                // no negation
+            }
+       
         await bot.reply(message, 'did you break something? Do you want to return something? Please send it to your nearest facility.');
         //yes or no question
         //if yes, asks for their country, save that country in that context.
