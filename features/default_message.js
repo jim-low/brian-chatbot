@@ -6,7 +6,7 @@
 module.exports = function(controller) {
 
     controller.on('message,direct_message', async(bot, message) => {
-        await bot.reply(message, 'Dumbass say what?');
+        await bot.reply(message, 'I do not understand, please say something that i can actually understand.');
     });
 
 }

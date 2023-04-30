@@ -1,0 +1,103 @@
+{
+    "kedah":  [
+        {
+            "alorSetar": 
+            "No. 35, Taman Bandar Baru, Sultanah Bahiyah Highway,<br> Bandar Baru Mergong,<br> Alor Setar,<br> 06250  KEDAH, Malaysia<br>"
+        }
+    ],
+
+    "johor":  [
+        {
+            "batuPahat": 
+            "12, Jalan Ceria, <br> Pusat Perniagaan Ceria, <br> Batu Pahat, <br> 83000  JOHOR, Malaysia <br>",
+            "johorBahru":
+            "57 jalan ponderosa 2/2, <br>Taman Ponderosa, <br>Masai, <br>81100  JOHOR, Malaysia <br>",
+            "nusaBestari":
+            "26G, Jalan Bestari 7/2, <br>Taman Nusa Bestari, <br>Johor Bahru, <br>79150 JOHOR, Malaysia <br>"
+        }
+    ],
+
+    "sarawak":  [
+        {
+            "bintulu": 
+            "4075, 4076, 4077, Parkcity Commercial Square, <br>Jalan Tun Ahmad Zaidi, <br> Bintulu, <br>97000  SARAWAK, Malaysia <br>",
+            "kuching": 
+            "40 & 41,<br>Jalan Tun Ahmad Zaidi Adruce,<br>Kuching,<br>93200 SARAWAK, Malaysia<br>",
+            "miri":
+            "Lot 1740, Block 9, <br>MCLD, Rice Mill Road, Kampung Bahru, <br>Miri, <br>98000 SARAWAK, Malaysia <br>"
+        }
+    ],
+
+    "perak":  [
+        {
+            "ipoh": 
+            "8 & 10, Jalan Bercham Bistari 1, <br>Medan Bercham Bistari, <br>Ipoh, <br>31400  PERAK, Malaysia <br>"
+        }
+    ],
+
+    "sabah":  [
+        {
+            "kotaKinabalu": 
+            "Lot 6 (1st Floor) & Lot 7 (Ground & 1st Floor), Block F, <br>Sri Kepayan Commercial Centre, <br>Kota Kinabalu, <br>88200  SABAH, Malaysia <br>",
+            "sandakan":
+            "255 & 256, Ground Floor, Jalan S2 B12,<br>Uptown Avenue, Seremban 2,<br>Seremban,<br>70300 N. SEMBILAN, Malaysia<br>"
+        }
+    ],
+
+    "terengganu":  [
+        {
+            "kualaTerengganu": 
+            "24, Tingkat Bawah,<br>Pusat Niaga Paya Keladi,<br>Kuala Terengganu,<br>20000 TERENGGANU, Malaysia<br>"
+        }
+    ],
+
+    "pahang":  [
+        {
+            "kuantan": 
+            "A255, Ground Floor,<br>Jalan Air Putih,<br>Kuantan,<br>25300 PAHANG, Malaysia<br>"
+        }
+    ],
+
+    "melaka":  [
+        {
+            "MalimJaya": 
+            "108A, Jalan Berkat 15, <br>Taman Malim Jaya, <br>Malim Jaya, <br>75250 MELAKA, Malaysia <br>"
+        }
+    ],
+
+    "pulauPinang":  [
+        {
+            "Jelutong": 
+            "No 9 & 10, <br>Persiaran Karpal Singh 2, <br>Jelutong, <br>11600 PULAU PINANG, Malaysia <br>",
+            "Perai":
+            "1797-G-07 & 08, Kompleks Auto World,<br>Jalan Perusahaan, Juru Interchange,<br>Perai,<br>13600 PULAU PINANG, Malaysia<br>"
+        }
+    ],
+
+    "selangor":  [
+        {
+            "petalingJaya": 
+            "28, Jalan 51a/223,<br>Seksyen 51a,<br>Petaling Jaya,<br>46100 SELANGOR, Malaysia<br>"
+        }
+    ],
+
+    "negeriSembilan":  [
+        {
+            "seremban": 
+            "255 & 256, Ground Floor, Jalan S2 B12,<br>Uptown Avenue, Seremban 2,<br>Seremban,<br>70300 N. SEMBILAN, Malaysia<br>"
+        }
+    ],
+
+    "kualaLumpur":  [
+        {
+            "wangsaMaju": 
+            "No. 34N-0-3, Jalan Wangsa Delima 6, 1/27F KLSC Section 5,<br>Pusat Bandar Wangsa Maju,<br>Wangsa Maju,<br>53300 KUALA LUMPUR, Malaysia<br>"
+        }
+    ]
+
+
+
+   
+
+
+}
