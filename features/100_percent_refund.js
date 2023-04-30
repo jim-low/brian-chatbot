@@ -3,7 +3,7 @@ const nlp = require('compromise')
 
 module.exports = function(controller) {
     controller.hears('i would like the 100% refund', 'message', async (bot, message) => {
-        await bot.reply(message, 'that does not exist.');
+        await bot.reply(message, 'please refer to our terms and conditions.');
     })
 
     controller.hears(message => {

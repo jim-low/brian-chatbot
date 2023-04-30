@@ -11,7 +11,7 @@ module.exports = function(controller) {
             pattern: 'Malaysia',
             handler: async function(answer, convo, bot) {
                 await convo.gotoThread('all-location');
-            }
+            },
         },
 
         {
