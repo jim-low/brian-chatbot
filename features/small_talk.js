@@ -33,9 +33,10 @@ module.exports = function(controller) {
         await bot.reply(message, 'I am doing great! I went to Sawcon last week. How can I help you?')
     })
 
-    controller.hears(['what can you do', 'what do you do', 'what you do'], 'message', async (bot, message) => {
+    controller.hears(['what can you do', 'what do you do', 'what you do', 'who are you'], 'message', async (bot, message) => {
         await bot.reply(message, `I am a chatbot titled ${context.botName} with the insufferable personality of Brian from RST2 Group 4.`)
-        await bot.reply(message, 'I am able to have a painful conversation with you as well as recommend and provide you with information on certain products.');
+        await bot.reply(message, 'I am able to have a painful conversation with you as well as providing after sales information for you.');
+
         await bot.reply(message, {
             text: "I am also well equipped with many fun facts! Do have a hear!",
             quick_replies: [
@@ -44,12 +45,8 @@ module.exports = function(controller) {
                     payload: "Give me a fun fact!"
                 },
                 {
-                    title: "Products",
-                    payload: "Show me your products!"
-                },
-                {
-                    title: "Search for product",
-                    payload: "I want to look for a product"
+                    title: "After Sales Help",
+                    payload: "help"
                 },
                 {
                     title: "Cancel",
@@ -58,4 +55,6 @@ module.exports = function(controller) {
             ]
         });
     })
+
+    
 }
