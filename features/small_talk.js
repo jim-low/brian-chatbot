@@ -1,32 +1,39 @@
 const context = require('../bot/botkit/context.js');
-const nlp = require('compromise');
+const natural = require('natural')
+const Tokenizer = new natural.WordTokenizer();
+const lexicon = new natural.Lexicon('EN', 'N', 'NNP');
+const ruleSet = new natural.RuleSet('EN');
+const tagger = new natural.BrillPOSTagger(lexicon, ruleSet);
+const classifier = require('../bot/classifier');
+const classifications = require('../bot/botkit/classifications');
 
 module.exports = function(controller) {
-
-    
     controller.on('channel_join', async (bot, message) => {
         await bot.reply(message, `Hello! My name is ${context.botName}. How can I help you?`)
     })
 
     controller.hears(message => {
+        context.greetingType = classifier.classify(message.text)
 
-        const doc = nlp(message.text);
-        if (doc.has("name") && (doc.has("#Noun") || doc.has("#Singular"))) {
-            context.userName = doc.match("#ProperNoun").toTitleCase().text();
+        if (context.greetingType == classifications.greetings.name) {
+            context.userName = tags.filter(word => word.tag == "NNP").map(word => word.token).join(" ");
+            return true;
+        }
+        else if (context.greetingType == classifications.greetings.niceToMeetYou || context.greetingType == classifications.greetings.hello) {
             return true;
         }
         return false;
 
     }, 'message', async (bot, message) => {
-        await bot.reply(message, `Fuck you, ${context.userName}`);
-    })
-
-    controller.hears(['halo', 'hallo', 'hello', 'hi', 'greetings'], 'message', async (bot, message) => {
-        await bot.reply(message, "Hello, whats your name?");
-    })
-
-    controller.hears('nice to meet you', 'message', async (bot, message) => {
-        await bot.reply(message, "Fuck you. How can I help?")
+        if (context.greetingType == classifications.greetings.name) {
+            await bot.reply(message, `Fuck you, ${context.userName}`);
+        }
+        else if (context.greetingType == classifications.greetings.hello) {
+            await bot.reply(message, "Hello, what's your name?");
+        }
+        else if (context.greetingType == classifications.greetings.niceToMeetYou) {
+            await bot.reply(message, "Fuck you. How can I help?")
+        }
     })
 
     controller.hears(['how do you do', 'how was your day', 'how was your week', 'how are you'], 'message', async (bot, message) => {
