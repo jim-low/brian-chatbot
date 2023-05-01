@@ -344,5 +344,12 @@ module.exports = function(controller) {
     controller.hears(['shops','facilities', 'facility'], 'message', async(bot, message) => {
         await bot.changeContext(message.reference)
         bot.beginDialog('location');
+
+        // await bot.reply(message, {type: 'typing'});
+        // setTimeout(async () => {
+        //     // will have to reset context because turn has now ended.
+        //     await bot.changeContext(message.reference);
+        //     await bot.reply(message, 'Typed!');
+        // }, 1000);
     });
 }   

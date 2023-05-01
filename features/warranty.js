@@ -24,20 +24,23 @@ module.exports = function(controller) {
                                 Standard Warranty Duration: 24 months<br>
                                 Warranty Registration Grace Period: 12 months<br>
                                 Maximum Warranty Period: 36 months<br>`);
-        await bot.reply(message, 'Remember warranty extension only apply to our products above.');
+        await bot.reply(message, 'Remember that the warranty extension only applies to our products above.');
     });
     
     controller.hears('warranty', 'message', async (bot, message) => {
-        const originalMessage = 'warranty'
-        const doc = nlp(originalMessage).sentences().toNegative()
-        if (doc.text() === originalMessage)
+        const doc = nlp(message.text).sentences().toNegative()
+        console.log(doc.text());
+        console.log(message.text);
+        if (doc.text() == message.txt)
         {
             //they have no warranty
             await bot.reply(message, 'Then i am unable to help you. please refer to our terms and conditions');
         }
 
-        if (doc.text() !== originalMessage) {
+        if (doc.text() != message.text) {
             //they have warranty
+            await bot.reply(message, doc.text());
+            await bot.reply(message, message);
             await bot.reply(message, {
                 text: "Here are some of our warranty guidelines.",
                 quick_replies: [
@@ -47,7 +50,7 @@ module.exports = function(controller) {
                     },
                     {
                         title: "Warranty Extension",
-                        payload: "I would like to see your warranty information"
+                        payload: "I would like to see your warranty extension information"
                     },
                 ]
             })      
