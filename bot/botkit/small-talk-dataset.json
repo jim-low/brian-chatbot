@@ -160,7 +160,9 @@
         {
             "intent": "joke.askQuestion",
             "sentences": [
-                "let me ask you a question"
+                "let me ask you a question",
+                "can i ask you a question",
+                "i would like to ask"
             ]
         },
         {
@@ -175,6 +177,126 @@
                 "i hope that you die",
                 "i want to die",
                 "will you die"
+            ]
+        },
+        {
+            "intent": "joke.rickroll",
+            "sentences": [
+                "rick roll"
+            ]
+        },
+        {
+            "intent": "inquiries.warranty",
+            "sentences": [
+                "i have a warranty",
+                "i have no warranty"
+            ]
+        },
+        {
+            "intent": "inquiries.warrantyRegistration",
+            "sentences": [
+                "i would like to know about the warranty registration",
+                "i would like to register warranty",
+                "i would like to register a warranty",
+                "i would like to register for a warranty"
+            ]
+        },
+        {
+            "intent": "inquiries.warrantyExtension",
+            "sentences": [
+                "i would like to know about the warranty extension",
+                "is there an extension for warranty"
+            ]
+        },
+        {
+            "intent": "inquiries.return",
+            "sentences": [
+                "i want to return a product",
+                "i want to return product"
+            ]
+        },
+        {
+            "intent": "inquiries.100satisfaction",
+            "sentences": [
+                "100% satisfaction",
+                "what is the 100% satisfaction policy"
+            ]
+        },
+        {
+            "intent": "inquiries.tac",
+            "sentences": [
+                "terms and conditions",
+                "what are your other terms and conditions"
+            ]
+        },
+        {
+            "intent": "inquiries.repair",
+            "sentences": [
+                "do you have repair services",
+                "what are your repair services"
+            ]
+        },
+        {
+            "intent": "inquiries.workingHours",
+            "sentences": [
+                "what are your working hours",
+                "what hours do you work",
+                "when are you available",
+                "what times are you available",
+                "working hours"
+            ]
+        },
+        {
+            "intent": "inquiries.troubleshoot",
+            "sentences": [
+                "troubleshooting",
+                "help",
+                "services",
+                "i need help"
+            ]
+        },
+        {
+            "intent": "inquiries.changeProduct",
+            "sentences": [
+                "i would like to change products",
+                "i want like to change products"
+            ]
+        },
+        {
+            "intent": "inquiries.findProduct",
+            "sentences": [
+                "i would like to look for products",
+                "i want like to look for products"
+            ]
+        },
+        {
+            "intent": "inquiries.knowMore",
+            "sentences": [
+                "i would like to know more about",
+                "i would like to buy",
+                "i would like to purchase"
+            ]
+        },
+        {
+            "intent": "inquiries.installation",
+            "sentences": [
+                "i would like to install",
+                "i would like to know how to install",
+                "i would like to know the installation"
+            ]
+        },
+        {
+            "intent": "inquiries.installation",
+            "sentences": [
+                "i would like to install",
+                "i would like to know how to install",
+                "i would like to know the installation"
+            ]
+        },
+        {
+            "intent": "inquiries.cancel",
+            "sentences": [
+                "let me explore around a bit"
             ]
         }
     ]
