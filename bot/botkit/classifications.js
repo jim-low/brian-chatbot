@@ -1,9 +1,9 @@
 const classifications = {
-    greetings: {
-        hello: "greetings.hello",
-        name: "greetings.name",
-        niceToMeetYou: "greetings.niceToMeetYou",
-        introduce: "greetings.introduce",
+    small_talk: {
+        hello: "small_talk.hello",
+        name: "small_talk.name",
+        niceToMeetYou: "small_talk.niceToMeetYou",
+        introduce: "small_talk.introduce",
     },
 }
 
