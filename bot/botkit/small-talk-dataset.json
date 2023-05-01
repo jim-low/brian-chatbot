@@ -8,7 +8,10 @@
                 "hello",
                 "hi",
                 "greetings",
-                "top of the morning to you"
+                "top of the morning to you",
+                "heya",
+                "hey",
+                "hai"
             ]
         },
         {
@@ -109,28 +112,36 @@
         {
             "intent": "offend.relationships",
             "sentences": [
-                "tell me about relationships"
+                "tell me about relationships",
+                "what relationship advice would you give?",
+                "relationships?",
+                "do you have a girlfriend?",
+                "what is a relationship?"
             ]
         },
         {
             "intent": "joke.move",
             "sentences": [
                 "you can not move",
-                "when will you walk"
+                "when will you walk",
+                "you will never be human"
             ]
         },
         {
             "intent": "joke.number",
             "sentences": [
                 "what is your favorite number",
-                "what is your number"
+                "what is your number",
+                "your number"
             ]
         },
         {
             "intent": "joke.tellMeJoke",
             "sentences": [
                 "do you know any jokes",
-                "tell me a joke"
+                "tell me a joke",
+                "do you have a joke",
+                "give me a joke"
             ]
         },
         {
@@ -147,14 +158,16 @@
                 "but i dont like it",
                 "no i dont agree",
                 "no i dont like it",
-                "no i dont think so"
+                "no i dont think so",
+                "i do not like you"
             ]
         },
         {
             "intent": "joke.selfAware",
             "sentences": [
                 "are you sentient",
-                "are you sapient"
+                "are you sapient",
+                "are you real"
             ]
         },
         {
@@ -176,7 +189,11 @@
             "sentences": [
                 "i hope that you die",
                 "i want to die",
-                "will you die"
+                "will you die",
+                "i really want to die",
+                "I feel like dying",
+                "I am suffering",
+                "I hate you"
             ]
         },
         {
