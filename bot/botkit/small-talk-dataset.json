@@ -209,7 +209,7 @@
             ]
         },
         {
-            "intent": "inquiries.return",
+            "intent": "inquiries.returnProduct",
             "sentences": [
                 "i want to return a product",
                 "i want to return product"
@@ -275,14 +275,6 @@
                 "i would like to know more about",
                 "i would like to buy",
                 "i would like to purchase"
-            ]
-        },
-        {
-            "intent": "inquiries.installation",
-            "sentences": [
-                "i would like to install",
-                "i would like to know how to install",
-                "i would like to know the installation"
             ]
         },
         {

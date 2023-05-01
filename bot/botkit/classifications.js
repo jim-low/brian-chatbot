@@ -35,7 +35,7 @@ const classifications = {
         warranty: "inquiries.warranty",
         warrantyRegistration: "inquiries.warrantyRegistration",
         warrantyExtension: "inquiries.warrantyExtension",
-        return: "inquiries.return",
+        returnProduct: "inquiries.returnProduct",
         "100satisfaction": "inquiries.100satisfaction",
         tac: "inquiries.tac",
         repair: "inquiries.repair",
