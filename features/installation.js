@@ -1,4 +1,3 @@
-
 module.exports = function(controller) {
     controller.hears('Atmosphere SKY', 'message', async(bot, message) => {
         await bot.reply(message, '<img src="../images/atmosphere_sky.png" alt="Atmosphere_sky.png" width="200" height="300">');
