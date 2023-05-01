@@ -1,4 +1,14 @@
-const nlp = require('compromise');
+const natural = require('natural')
+const Analyzer = natural.SentimentAnalyzer;
+const Tokenizer = new natural.WordTokenizer();
+const stemmer = natural.PorterStemmer;
+const lexicon = new natural.Lexicon('EN', 'N', 'NNP');
+const ruleSet = new natural.RuleSet('EN');
+const tagger = new natural.BrillPOSTagger(lexicon, ruleSet);
+const classifier = require('../bot/classifier');
+const classifications = require('../bot/botkit/classifications');
+const analyzer = new Analyzer("English", stemmer, "afinn");
+const NGrams = natural.NGrams;
 
 module.exports = function(controller) {
     controller.hears(['warranty registration','register warranty'], 'message', async(bot, message) => {
@@ -28,18 +38,19 @@ module.exports = function(controller) {
     });
     
     controller.hears('warranty', 'message', async (bot, message) => {
-        const doc = nlp(message.text).sentences().toNegative()
-        console.log(doc.text());
-        console.log(message.text);
-        if (doc.text() == message.txt)
+        const result = NGrams.bigrams(message.text);
+
+        console.log(result)
+        console.log(result.map(list => list.join(" ")).includes("no warranty"))
+
+        if (result.map(list => list.join(" ")).includes("no warranty"))
         {
             //they have no warranty
             await bot.reply(message, 'Then i am unable to help you. please refer to our terms and conditions');
         }
-
-        if (doc.text() != message.text) {
+        else {
             //they have warranty
-            await bot.reply(message, doc.text());
+            // await bot.reply(message, doc.text());
             await bot.reply(message, message);
             await bot.reply(message, {
                 text: "Here are some of our warranty guidelines.",
