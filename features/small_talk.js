@@ -8,39 +8,40 @@ const classifier = require('../bot/classifier');
 const classifications = require('../bot/botkit/classifications');
 
 module.exports = function(controller) {
-    controller.on('channel_join', async (bot, message) => {
-        await bot.reply(message, `Hello! My name is ${context.botName}. How can I help you?`)
-    })
-
     controller.hears(message => {
-        context.greetingType = classifier.classify(message.text)
+        context.currIntent = classifier.classify(message.text)
 
-        if (context.greetingType == classifications.greetings.name) {
+        if (context.currIntent == classifications.small_talk.name) {
+            const tags = tagger.tag(Tokenizer.tokenize(message.text)).taggedWords;
             context.userName = tags.filter(word => word.tag == "NNP").map(word => word.token).join(" ");
-            return true;
-        }
-        else if (context.greetingType == classifications.greetings.niceToMeetYou || context.greetingType == classifications.greetings.hello) {
             return true;
         }
         return false;
 
     }, 'message', async (bot, message) => {
-        if (context.greetingType == classifications.greetings.name) {
-            await bot.reply(message, `Fuck you, ${context.userName}`);
-        }
-        else if (context.greetingType == classifications.greetings.hello) {
-            await bot.reply(message, "Hello, what's your name?");
-        }
-        else if (context.greetingType == classifications.greetings.niceToMeetYou) {
-            await bot.reply(message, "Fuck you. How can I help?")
-        }
+        await bot.reply(message, `Fuck you, ${context.userName}`);
     })
 
-    controller.hears(['how do you do', 'how was your day', 'how was your week', 'how are you'], 'message', async (bot, message) => {
-        await bot.reply(message, 'I am doing great! I went to Sawcon last week. How can I help you?')
+    controller.hears(message => {
+        context.currIntent = classifier.classify(message.text)
+        return context.currIntent == classifications.small_talk.hello;
+    }, 'message', async (bot, message) => {
+        await bot.reply(message, "Hello, what's your name?");
     })
 
-    controller.hears(['what can you do', 'what do you do', 'what you do', 'who are you'], 'message', async (bot, message) => {
+    controller.hears(message => {
+        context.currIntent = classifier.classify(message.text)
+        return context.currIntent == classifications.small_talk.niceToMeetYou;
+    }, 'message', async (bot, message) => {
+        await bot.reply(message, "Fuck you, how can I help?");
+    })
+
+    controller.hears(message => {
+
+        context.currIntent = classifier.classify(message.text)
+        return context.currIntent == classifications.small_talk.introduce;
+
+    }, 'message', async (bot, message) => {
         await bot.reply(message, `I am a chatbot titled ${context.botName} with the insufferable personality of Brian from RST2 Group 4.`)
         await bot.reply(message, 'I am able to have a painful conversation with you as well as providing after sales information for you.');
 
@@ -63,5 +64,10 @@ module.exports = function(controller) {
         });
     })
 
-    
+    controller.hears(['how do you do', 'how was your day', 'how was your week', 'how are you'], 'message', async (bot, message) => {
+        await bot.reply(message, 'I am doing great! I went to Sawcon last week. How can I help you?')
+    })
+
+    controller.hears(['what can you do', 'what do you do', 'what you do', 'who are you'], 'message', async (bot, message) => {
+    })
 }
