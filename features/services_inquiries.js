@@ -72,9 +72,4 @@ module.exports = function(controller) {
                 ]
         })      
     });
-
-    controller.hears('repair','message', async(bot, message) => {
-        await bot.reply(message, `We do have repair services, you may refer to your nearest Amway shop.`)      
-    });
-
 }

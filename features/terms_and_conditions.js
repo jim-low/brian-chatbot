@@ -11,8 +11,6 @@ const classifications = require('../bot/botkit/classifications');
 const analyzer = new Analyzer("English", stemmer, "afinn");
 
 module.exports = function(controller) {
-
-    
     controller.hears(message => {
         context.currIntent = classifier.getClassifications(message.text)[0].label;
         return context.currIntent == classifications.inquiries.returnProduct
@@ -79,9 +77,5 @@ module.exports = function(controller) {
                 ]
             })      
         }
-
     });
-
-
-
 }

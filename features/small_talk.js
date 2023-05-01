@@ -37,14 +37,11 @@ module.exports = function(controller) {
     })
 
     controller.hears(message => {
-
         context.currIntent = classifier.classify(message.text)
         return context.currIntent == classifications.small_talk.whatDoYouDo
-
     }, 'message', async (bot, message) => {
         await bot.reply(message, `I am a chatbot titled ${context.botName} with the insufferable personality of Brian from RST2 Group 4.`)
         await bot.reply(message, 'I am able to have a painful conversation with you as well as providing after sales information for you.');
-
         await bot.reply(message, {
             text: "I am also well equipped with many fun facts! Do have a hear!",
             quick_replies: [
