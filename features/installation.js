@@ -1,4 +1,23 @@
+const context = require('../bot/botkit/context');
+const natural = require('natural')
+const Analyzer = natural.SentimentAnalyzer;
+const Tokenizer = new natural.WordTokenizer();
+const stemmer = natural.PorterStemmer;
+const lexicon = new natural.Lexicon('EN', 'N', 'NNP');
+const ruleSet = new natural.RuleSet('EN');
+const tagger = new natural.BrillPOSTagger(lexicon, ruleSet);
+const classifier = require('../bot/classifier');
+const classifications = require('../bot/botkit/classifications');
+const analyzer = new Analyzer("English", stemmer, "afinn");
+
 module.exports = function(controller) {
+    controller.hears(message => {
+        context.currIntent = classifier.getClassifications(message.text)[0].label;
+        return context.currIntent == classifications.inquiries.knowMore
+    },'message', async(bot, message) => {
+        await bot.reply(message, 'Unfortunately i cannot help you with the details of our company products, I am an after-sales bot. If you wish to purchase items. You can refer to our site.');
+    });
+
     controller.hears('Atmosphere SKY', 'message', async(bot, message) => {
         await bot.reply(message, '<img src="../images/atmosphere_sky.png" alt="Atmosphere_sky.png" width="200" height="300">');
         await bot.reply(message, `This is what the Atmosphere sky Looks like. If you need the installation guide, you can refer here<br>
@@ -16,11 +35,10 @@ module.exports = function(controller) {
         await bot.reply(message, `This is what the Atmosphere Drive Looks like. If you need the installation guide, unfortunately, we do not have the data for that yet.`);
     });
 
-    controller.hears(['know more','buy','purchase'],'message', async(bot, message) => {
-        await bot.reply(message, 'Unfortunately i cannot help you with the details of our company products, I am an after-sales bot. If you wish to purchase items. You can refer to our site.');
-    });
-
-    controller.hears(['installation','install'],'message', async(bot, message) => {
+    controller.hears(message => {
+        context.currIntent = classifier.getClassifications(message.text)[0].label;
+        return context.currIntent == classifications.inquiries.installation
+    },'message', async(bot, message) => {
         await bot.reply(message, {
             text: "We currently only have installation information of the following products.",
             quick_replies: [

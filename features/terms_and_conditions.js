@@ -1,9 +1,22 @@
+const context = require('../bot/botkit/context');
+const natural = require('natural')
+const Analyzer = natural.SentimentAnalyzer;
+const Tokenizer = new natural.WordTokenizer();
+const stemmer = natural.PorterStemmer;
+const lexicon = new natural.Lexicon('EN', 'N', 'NNP');
+const ruleSet = new natural.RuleSet('EN');
+const tagger = new natural.BrillPOSTagger(lexicon, ruleSet);
+const classifier = require('../bot/classifier');
+const classifications = require('../bot/botkit/classifications');
+const analyzer = new Analyzer("English", stemmer, "afinn");
+
 module.exports = function(controller) {
 
     
-    controller.hears(['return product', 'return a product'], 'message', async (bot, message) => {
-
-        //return
+    controller.hears(message => {
+        context.currIntent = classifier.getClassifications(message.text)[0].label;
+        return context.currIntent == classifications.inquiries.returnProduct
+    }, 'message', async (bot, message) => {
         await bot.reply(message, `<b><h3>Return of Product</h3></b>`);
         await bot.reply(message, `<u>Regarding Unused,Unopened, or Overaged Products</u><br><br>
                                     Amway will only accept return services if products are...<br><br>
@@ -21,7 +34,10 @@ module.exports = function(controller) {
                                     Amway reserves the rights to refuse return if the customer fails to prepare and meet the criteria of the information mentioned.`);
     })
 
-    controller.hears('100% satisfaction', 'message', async (bot, message) => {
+    controller.hears(message => {
+        context.currIntent = classifier.getClassifications(message.text)[0].label;
+        return context.currIntent == classifications.inquiries['100satisfaction']
+    }, 'message', async (bot, message) => {
         //100% satisfaction
         await bot.reply(message, `<b><h3>100% Satisfaction</h3></b>`);
         await bot.reply(message, ` Amway ensures that you are getting the best out of our services. If you do not like our product, within 90-days from purchase date, you are allowed to return the product with full refund <br><br>
@@ -33,34 +49,39 @@ module.exports = function(controller) {
                                     `);
     })
 
-    controller.hears('other terms and conditions', 'message', async (bot, message) => {
-        //other     
-        await bot.reply(message, `<b><h3>Other</h3></b>`);    
-        await bot.reply(message, `- The chatbot holds no responsibility for any possible mental damages, if you are offended over a chatbot you should get some help.`);
-        await bot.reply(message, '- Products displayed may update in the near future. As the chatbot is still in development');
-    })
-    
-    controller.hears([/terms and conditions/gi,'TOC'],'message', async(bot, message) => {
-        await bot.reply(message, {
-            text: "Here is the terms and conditions that Amway has, nerd,",
-            quick_replies: [
-                {
-                    title: "Return Product",
-                    payload: "I want to return a product."
-                },
-                {
-                    title: "100% satisfaction",
-                    payload: "What is the 100% satisfaction policy?"
-                },
-                {
-                    title: "Other",
-                    payload: "What are your other terms and conditions?"
-                }
-            ]
-        })      
+    controller.hears(message => {
+        context.currIntent = classifier.getClassifications(message.text)[0].label;
+        console.log(message.text);
+        console.log(context.currIntent);
+        return context.currIntent == classifications.inquiries.tac
+    },'message', async(bot, message) => {
+        if (Tokenizer.tokenize(message.text).includes('other')) {
+            await bot.reply(message, `<b><h3>Other</h3></b>`);    
+            await bot.reply(message, `- The chatbot holds no responsibility for any possible mental damages, if you are offended over a chatbot you should get some help.`);
+            await bot.reply(message, '- Products displayed may update in the near future. As the chatbot is still in development');
+        }
+        else {
+            await bot.reply(message, {
+                text: "Here is the terms and conditions that Amway has, nerd,",
+                quick_replies: [
+                    {
+                        title: "Return Product",
+                        payload: "I want to return a product."
+                    },
+                    {
+                        title: "100% satisfaction",
+                        payload: "What is the 100% satisfaction policy?"
+                    },
+                    {
+                        title: "Other",
+                        payload: "What are your other terms and conditions?"
+                    }
+                ]
+            })      
+        }
 
     });
 
-    
+
 
 }
