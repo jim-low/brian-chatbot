@@ -40,9 +40,6 @@ module.exports = function(controller) {
     controller.hears('warranty', 'message', async (bot, message) => {
         const result = NGrams.bigrams(message.text);
 
-        console.log(result)
-        console.log(result.map(list => list.join(" ")).includes("no warranty"))
-
         if (result.map(list => list.join(" ")).includes("no warranty"))
         {
             //they have no warranty
