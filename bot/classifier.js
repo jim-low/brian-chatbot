@@ -1,38 +1,57 @@
-const { BayesClassifier } = require('natural')
+const { PorterStemmer, BayesClassifier } = require("natural")
 const classifier = new BayesClassifier();
-const classifications = require('./botkit/classifications')
+const classifications = require("./botkit/classifications")
+const dataset = require("./botkit/small-talk-dataset.json")
 
-// greetings without name
-classifier.addDocument('hello', classifications.greetings.hello);
-classifier.addDocument('hi', classifications.greetings.hello);
-classifier.addDocument('hey', classifications.greetings.hello);
-classifier.addDocument('yo', classifications.greetings.hello);
-classifier.addDocument('sup', classifications.greetings.hello);
-classifier.addDocument('whats up', classifications.greetings.hello);
-classifier.addDocument('greetings', classifications.greetings.hello);
-classifier.addDocument('nice to meet you', classifications.greetings.hello);
-classifier.addDocument('hi nice to meet you', classifications.greetings.hello);
-classifier.addDocument('hello nice to meet you', classifications.greetings.hello);
-classifier.addDocument('hey nice to meet you', classifications.greetings.hello);
+// // small_talk without name
+// let sentences = ["hello", "hi", "hey"];
+// sentences.forEach(sentence => {
+//     classifier.addDocument(PorterStemmer.tokenizeAndStem(sentence), classifications.small_talk.hello);
+// })
 
-// greetings with name
-classifier.addDocument('my name is Jim', classifications.greetings.name);
-classifier.addDocument('you can call me Jim', classifications.greetings.name);
-classifier.addDocument('i am Jim', classifications.greetings.name);
-classifier.addDocument('im Jim', classifications.greetings.name);
+// // small_talk -> "nice to meet you" kind
+// sentences = [
+//     "nice to meet you",
+//     "how do you do",
+//     "pleasure to meet you",
+//     "pleased to meet you",
+//     "good morning",
+//     "good afternoon",
+// ];
+// sentences.forEach(sentence => {
+//     classifier.addDocument(PorterStemmer.tokenizeAndStem(sentence), classifications.small_talk.hello);
+// })
 
-// greetings -> "nice to meet you" kind
-classifier.addDocument('nice to meet you', classifications.greetings.niceToMeetYou);
-classifier.addDocument('how do you do', classifications.greetings.niceToMeetYou);
-classifier.addDocument('pleasure to meet you', classifications.greetings.niceToMeetYou);
-classifier.addDocument('its a pleasure', classifications.greetings.niceToMeetYou);
+// // small_talk with name
+// sentences = [
+// ];
+// sentences.forEach(sentence => {
+//     classifier.addDocument(PorterStemmer.tokenizeAndStem(sentence), classifications.small_talk.hello);
+// })
 
-// greetings - bot introduction
-classifier.addDocument('who are you', classifications.greetings.niceToMeetYou);
-classifier.addDocument('what are you', classifications.greetings.niceToMeetYou);
-classifier.addDocument('what can you do', classifications.greetings.niceToMeetYou);
-classifier.addDocument('introduce yourself', classifications.greetings.niceToMeetYou);
-classifier.addDocument('what can you do', classifications.greetings.niceToMeetYou);
+// // small_talk - bot introduction
+// sentences = [
+//     "who are you",
+//     "what are you",
+//     "what can you do",
+//     "introduce yourself",
+//     "what can you do",
+//     "what do you do",
+//     "what is this",
+// ];
+// sentences.forEach(sentence => {
+//     classifier.addDocument(PorterStemmer.tokenizeAndStem(sentence), classifications.small_talk.hello);
+// })
+
+dataset.data.forEach(foo => {
+    console.log(foo.intent)
+    foo.sentences.forEach(sentence => {
+        console.log(sentence)
+        classifier.addDocument(PorterStemmer.tokenizeAndStem(sentence), foo.intent)
+    })
+    console.log()
+    console.log()
+})
 
 console.log("Trained!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 classifier.train();
