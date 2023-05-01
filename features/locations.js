@@ -337,7 +337,7 @@ module.exports = function(controller) {
     controller.addDialog(location);
     
     // launch the dialog in response to a message or event
-    controller.hears(['shops','facilities', 'facility'], 'message', async(bot, message) => {
+    controller.hears(['shops','facilities', 'facility', 'locations'], 'message', async(bot, message) => {
         await bot.reply(message, {type: 'typing'});
         setTimeout(async () => {
             // will have to reset context because turn has now ended.
