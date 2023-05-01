@@ -26,7 +26,7 @@ module.exports = function(controller) {
             text: "We currently only have installation information of the following products.",
             quick_replies: [
                 {
-                    title: "Atmoshpere Sky",
+                    title: "Atmosphere Sky",
                     payload: "Show me the installation for atmosphere sky."
                 },
                 {

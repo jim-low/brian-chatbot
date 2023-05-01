@@ -40,5 +40,6 @@ module.exports = function(controller) {
             await bot.changeContext(message.reference);
             await bot.reply(message, 'Typed!');
         }, 1000);
+        
     });
 };

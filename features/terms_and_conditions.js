@@ -1,19 +1,66 @@
 module.exports = function(controller) {
-    // TODO: add specific response for:
-    // 1. refund
-    // 1.1 100% satisfaction
-    // 2. warranty
-    // 3. what is illegal and what is not
 
-    controller.hears(/terms and conditions/gi, 'message', async (bot, message) => {
-        await bot.reply(message, 'Here are our terms and conditions, nerd');
-        await bot.reply(message, '- Items purchased are not refundable or exchangable for other products.');
-        await bot.reply(message, '- The organization will not be liable of any damages following the product after the warranty duration');
-        await bot.reply(message, `----------------------------------------------------------------------------------------------------------<br>
-            <h1 style="color: red;">The chatbot holds no responsibility for any possible mental damages, if you are offended over a chatbot you should get some help.</h1>
-            ----------------------------------------------------------------------------------------------------------<br>`);
-        await bot.reply(message, '- If the warranty is lost or damaged, the product is not available for repair, return, or refund.');
-        await bot.reply(message, '- Warranty times are not extendable nor negotiable');
+    
+    controller.hears(['return product', 'return a product'], 'message', async (bot, message) => {
+
+        //return
+        await bot.reply(message, `<b><h3>Return of Product</h3></b>`);
+        await bot.reply(message, `<u>Regarding Unused,Unopened, or Overaged Products</u><br><br>
+                                    Amway will only accept return services if products are...<br><br>
+                                    * Bought within 10 days of purchase. <br>
+                                    * in original packaging, and unopened in good condition. `);
+        await bot.reply(message, `<u>Regarding Damaged and Wrong Products</u><br><br>
+                                    Amway will only accept return services if products are...<br><br>
+                                    * <b>Received</b> within 10 days from delivery <br>
+                                    * in original packaging, and unopened in good condition. `);
+        await bot.reply(message, `Please prepare the following upon returning in our shops - <br><br>
+                                    * Invoice <br>
+                                    * Product name, quantity ordered <br>
+                                    * Proper Reason for return <br>
+                                    * Name, Address <br><br>
+                                    Amway reserves the rights to refuse return if the customer fails to prepare and meet the criteria of the information mentioned.`);
+    })
+
+    controller.hears('100% satisfaction', 'message', async (bot, message) => {
+        //100% satisfaction
+        await bot.reply(message, `<b><h3>100% Satisfaction</h3></b>`);
+        await bot.reply(message, ` Amway ensures that you are getting the best out of our services. If you do not like our product, within 90-days from purchase date, you are allowed to return the product with full refund <br><br>
+                                    This <b>does not</b> apply to... <br><br>
+                                    * Products that are intentionally damaged <br>
+                                    * Durable products, such as the Atmosphere Sky, Atmosphere Drive, and Air Purifiers that are under a seperate manufacturer warranty. <br>
+                                    * Any product in the shoppers catalouge, involving certain consumable items, such as XS drinks, and other seasonable items. <br> 
+                                    * Products that have been puchased by third-party sellers.
+                                    `);
+    })
+
+    controller.hears('other terms and conditions', 'message', async (bot, message) => {
+        //other     
+        await bot.reply(message, `<b><h3>Other</h3></b>`);    
+        await bot.reply(message, `- The chatbot holds no responsibility for any possible mental damages, if you are offended over a chatbot you should get some help.`);
         await bot.reply(message, '- Products displayed may update in the near future. As the chatbot is still in development');
     })
+    
+    controller.hears([/terms and conditions/gi,'TOC'],'message', async(bot, message) => {
+        await bot.reply(message, {
+            text: "Here is the terms and conditions that Amway has, nerd,",
+            quick_replies: [
+                {
+                    title: "Return Product",
+                    payload: "I want to return a product."
+                },
+                {
+                    title: "100% satisfaction",
+                    payload: "What is the 100% satisfaction policy?"
+                },
+                {
+                    title: "Other",
+                    payload: "What are your other terms and conditions?"
+                }
+            ]
+        })      
+
+    });
+
+    
+
 }
