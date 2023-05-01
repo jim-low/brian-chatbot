@@ -333,10 +333,6 @@ module.exports = function(controller) {
 
     location.addMessage('Sorry, I can not find any shops with the state/city you mentioned, if it even exists..', 'undefined-location');
     
-    location.after(async(results, bot) => {
-        const name = results.name;
-    });
-    
     // add the conversation to the dialogset
     controller.addDialog(location);
     

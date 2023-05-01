@@ -1,0 +1,165 @@
+{
+    "data": [
+        {
+            "intent": "small_talk.greetings",
+            "sentences": [
+                "what's up?",
+                "hi, how is it going?",
+                "hello",
+                "hi",
+                "greetings!",
+                "top of the morning to you!"
+            ]
+        },
+        {
+            "intent": "small_talk.name",
+            "sentences": [
+                "my name is jim",
+                "you can call me jim",
+                "i am jim",
+                "im jim",
+                "the name is jim"
+            ]
+        },
+        {
+            "intent": "small_talk.niceToMeetYou",
+            "sentences": [
+                "it is a pleasure to meet you.",
+                "hi, nice to meet you.",
+                "nice to meet you.",
+                "how are you doing?",
+                "how do you do?"
+            ]
+        },
+        {
+            "intent": "small_talk.whatDoYouDo",
+            "sentences": [
+                "what do you do",
+                "what are your functions",
+                "what can you do",
+                "what are you"
+            ]
+        },
+        {
+            "intent": "small_talk.interests",
+            "sentences": [
+                "what do you like to do?",
+                "what are your interests"
+            ]
+        },
+        {
+            "intent": "dumb_talk.communism",
+            "sentences": [
+                "what is communism"
+            ]
+        },
+        {
+            "intent": "dumb_talk.whereAreYou",
+            "sentences": [
+                "where are you",
+                "what is your location"
+            ]
+        },
+        {
+            "intent": "dumb_talk.whatsUrBiz",
+            "sentences": [
+                "what is your business"
+            ]
+        },
+        {
+            "intent": "dumb_talk.whatAI",
+            "sentences": [
+                "what is ai?"
+            ]
+        },
+        {
+            "intent": "dumb_talk.urAge",
+            "sentences": [
+                "what is your age"
+            ]
+        },
+        {
+            "intent": "offend.goodToEat",
+            "sentences": [
+                "do you eat",
+                "what is good to eat?",
+                "what can you eat"
+            ]
+        },
+        {
+            "intent": "offend.thatIsThePoint",
+            "sentences": [
+                "you are arrogant",
+                "you make me feel like i am stupid",
+                "you make me mad",
+                "you make me angry",
+                "you act like a child",
+                "you made me mad",
+                "you are not making sense",
+                "are you stupid"
+            ]
+        },
+        {
+            "intent": "offend.relationships",
+            "sentences": [
+                "tell me about relationships"
+            ]
+        },
+        {
+            "intent": "joke.move",
+            "sentences": [
+                "you can not move",
+                "when will you walk"
+            ]
+        },
+        {
+            "intent": "joke.number",
+            "sentences": [
+                "what is your favorite number",
+                "what is your number"
+            ]
+        },
+        {
+            "intent": "joke.tellMeJoke",
+            "sentences": [
+                "do you know any jokes",
+                "tell me a joke"
+            ]
+        },
+        {
+            "intent": "joke.book",
+            "sentences": [
+                "have you ever read a book",
+                "what books have you read",
+                "what books do you know"
+            ]
+        },
+        {
+            "intent": "joke.selfAware",
+            "sentences": [
+                "are you sentient?",
+                "are you sapient?"
+            ]
+        },
+        {
+            "intent": "joke.askQuestion",
+            "sentences": [
+                "let me ask you a question"
+            ]
+        },
+        {
+            "intent": "joke.noU",
+            "sentences": [
+                "robots are stupid"
+            ]
+        },
+        {
+            "intent": "joke.meToo",
+            "sentences": [
+                "i hope that you die",
+                "i want to die",
+                "will you die?"
+            ]
+        }
+    ]
+}
