@@ -40,15 +40,10 @@ module.exports = function(controller) {
     controller.hears('warranty', 'message', async (bot, message) => {
         const result = NGrams.bigrams(message.text);
 
-        if (result.map(list => list.join(" ")).includes("no warranty"))
-        {
-            //they have no warranty
+        if (result.map(list => list.join(" ")).includes("no warranty")) {
             await bot.reply(message, 'Then i am unable to help you. please refer to our terms and conditions');
         }
         else {
-            //they have warranty
-            // await bot.reply(message, doc.text());
-            await bot.reply(message, message);
             await bot.reply(message, {
                 text: "Here are some of our warranty guidelines.",
                 quick_replies: [
