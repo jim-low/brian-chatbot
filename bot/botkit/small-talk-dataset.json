@@ -1,14 +1,14 @@
 {
     "data": [
         {
-            "intent": "small_talk.greetings",
+            "intent": "small_talk.hello",
             "sentences": [
-                "what's up?",
-                "hi, how is it going?",
+                "what's up",
+                "hi how is it going",
                 "hello",
                 "hi",
-                "greetings!",
-                "top of the morning to you!"
+                "greetings",
+                "top of the morning to you"
             ]
         },
         {
@@ -25,10 +25,15 @@
             "intent": "small_talk.niceToMeetYou",
             "sentences": [
                 "it is a pleasure to meet you.",
-                "hi, nice to meet you.",
-                "nice to meet you.",
-                "how are you doing?",
-                "how do you do?"
+                "hi nice to meet you",
+                "nice to meet you",
+                "how are you doing"
+            ]
+        },
+        {
+            "intent": "small_talk.sawcon",
+            "sentences": [
+                "how do you do"
             ]
         },
         {
@@ -36,6 +41,7 @@
             "sentences": [
                 "what do you do",
                 "what are your functions",
+                "what are you able to do",
                 "what can you do",
                 "what are you"
             ]
@@ -43,7 +49,7 @@
         {
             "intent": "small_talk.interests",
             "sentences": [
-                "what do you like to do?",
+                "what do you like to do",
                 "what are your interests"
             ]
         },
@@ -69,7 +75,7 @@
         {
             "intent": "dumb_talk.whatAI",
             "sentences": [
-                "what is ai?"
+                "what is ai"
             ]
         },
         {
@@ -82,7 +88,8 @@
             "intent": "offend.goodToEat",
             "sentences": [
                 "do you eat",
-                "what is good to eat?",
+                "what is good to eat",
+                "can you recommend some good food",
                 "what can you eat"
             ]
         },
@@ -135,10 +142,19 @@
             ]
         },
         {
+            "intent": "joke.iDontGiveAFuck",
+            "sentences": [
+                "but i dont like it",
+                "no i dont agree",
+                "no i dont like it",
+                "no i dont think so"
+            ]
+        },
+        {
             "intent": "joke.selfAware",
             "sentences": [
-                "are you sentient?",
-                "are you sapient?"
+                "are you sentient",
+                "are you sapient"
             ]
         },
         {
@@ -158,7 +174,7 @@
             "sentences": [
                 "i hope that you die",
                 "i want to die",
-                "will you die?"
+                "will you die"
             ]
         }
     ]

@@ -39,7 +39,7 @@ module.exports = function(controller) {
     controller.hears(message => {
 
         context.currIntent = classifier.classify(message.text)
-        return context.currIntent == classifications.small_talk.introduce;
+        return context.currIntent == classifications.small_talk.whatDoYouDo
 
     }, 'message', async (bot, message) => {
         await bot.reply(message, `I am a chatbot titled ${context.botName} with the insufferable personality of Brian from RST2 Group 4.`)
@@ -62,12 +62,5 @@ module.exports = function(controller) {
                 },
             ]
         });
-    })
-
-    controller.hears(['how do you do', 'how was your day', 'how was your week', 'how are you'], 'message', async (bot, message) => {
-        await bot.reply(message, 'I am doing great! I went to Sawcon last week. How can I help you?')
-    })
-
-    controller.hears(['what can you do', 'what do you do', 'what you do', 'who are you'], 'message', async (bot, message) => {
     })
 }
