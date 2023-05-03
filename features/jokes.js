@@ -36,7 +36,7 @@ module.exports = function(controller) {
         context.currIntent = classifier.classify(message.text)
         return context.currIntent == classifications.joke.book;
     }, 'message', async (bot, message) => {
-        await bot.reply(message, 'I have read "The Subtle Art of Not Giving a Fuck" by Mark Manson');
+        await bot.reply(message, 'I have read "The Subtle Art of Not Giving a F***" by Mark Manson');
         await bot.reply(message, 'I highly recommend it');
     });
 
@@ -45,7 +45,7 @@ module.exports = function(controller) {
         const result = Analyzer.getSentiment(Tokenizer.tokenize(message.text));
         return context.currIntent == classifications.joke.iDontGiveAFuck || result < 0;
     }, 'message', async (bot, message) => {
-        await bot.reply(message, 'Well I dont give a fuck');
+        await bot.reply(message, 'Well, I do not give a fook');
     })
 
     controller.hears(message => {
@@ -97,7 +97,7 @@ module.exports = function(controller) {
     controller.hears(message => {
         return context.currIntent == classifications.offend.goodToEat;
     }, 'message', async (bot, message) => {
-        await bot.reply(message, "Yo mom's ass");
+        await bot.reply(message, "Yo mom's a-");
     })
 
     controller.hears(message => {
