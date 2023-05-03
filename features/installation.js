@@ -39,19 +39,26 @@ module.exports = function(controller) {
         context.currIntent = classifier.getClassifications(message.text)[0].label;
         return context.currIntent == classifications.inquiries.installation
     },'message', async(bot, message) => {
-        await bot.reply(message, {
-            text: "We currently only have installation information of the following products.",
-            quick_replies: [
-                {
-                    title: "Atmosphere Sky",
-                    payload: "Show me the installation for atmosphere sky."
-                },
-                {
-                    title: "ESpring",
-                    payload: "Show me the installation for the Espring Water Treatment System."
-                }
-            ]
-        })      
+        await bot.reply(message, {type: 'typing'});
+            setTimeout(async () => {
+                // will have to reset context because turn has now ended.
+                await bot.changeContext(message.reference);
+                await bot.reply(message, {
+                    text: "We currently only have installation information of the following products.",
+                    quick_replies: [
+                        {
+                            title: "Atmosphere Sky",
+                            payload: "Show me the installation for atmosphere sky."
+                        },
+                        {
+                            title: "ESpring",
+                            payload: "Show me the installation for the Espring Water Treatment System."
+                        }
+                    ]
+                })      
+            }, 1000);
+
+        
 
     });
 }   

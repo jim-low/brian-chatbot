@@ -14,6 +14,6 @@ module.exports = function(controller) {
     controller.hears(message => {
         context.currIntent = classifier.getClassifications(message.text)[0].label;
         return context.currIntent == classifications.inquiries.cancel;
-    }, 'message', async (bot, message) => await bot.reply(message, "You boring sack of sh-"));
+    }, 'message', async (bot, message) => await bot.reply(message, "Alright. Do let me know if there is anything i can help with."));
 
 }

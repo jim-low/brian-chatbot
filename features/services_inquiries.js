@@ -15,7 +15,7 @@ module.exports = function(controller) {
         context.currIntent = classifier.getClassifications(message.text)[0].label;
         return context.currIntent == classifications.inquiries.repair
     }, 'message', async (bot, message) => {
-        await bot.reply(message, 'We have a 100% satisfaction guaranteed policy that allows you to opt for a 100% refund or a change in product.');
+        await bot.reply(message, 'We have a 100% satisfaction guaranteed policy that allows you to opt for a 100% refund.');
         await bot.reply(message, 'Our 100% satisfaction guaranteed policy is only available if it meets our Terms and Conditions.');
         await bot.reply(message, {
             text: "What would you like to explore?",
@@ -30,7 +30,7 @@ module.exports = function(controller) {
                 },
                 {
                     title: "Change product",
-                    payload: "I would like to change products"
+                    payload: "Can i change products?"
                 }
             ]
         })

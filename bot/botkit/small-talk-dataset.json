@@ -30,7 +30,7 @@
                 "it is a pleasure to meet you.",
                 "hi nice to meet you",
                 "nice to meet you",
-                "how are you doing"
+                "how are you"
             ]
         },
         {
@@ -52,7 +52,7 @@
         {
             "intent": "small_talk.interests",
             "sentences": [
-                "what do you like to do",
+                "what do you like",
                 "what are your interests"
             ]
         },

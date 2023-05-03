@@ -19,7 +19,7 @@ module.exports = function(controller) {
         return false;
 
     }, 'message', async (bot, message) => {
-        await bot.reply(message, `Fuck you, ${context.userName}`);
+        await bot.reply(message, `Hello there, ${context.userName}`);
     })
 
     controller.hears(message => {
@@ -33,7 +33,7 @@ module.exports = function(controller) {
         context.currIntent = classifier.classify(message.text)
         return context.currIntent == classifications.small_talk.niceToMeetYou;
     }, 'message', async (bot, message) => {
-        await bot.reply(message, "Fuck you, how can I help?");
+        await bot.reply(message, "How can I help?");
     })
 
     controller.hears(message => {
