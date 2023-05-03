@@ -1,19 +1,8 @@
 const context = require('../bot/botkit/context');
 const natural = require('natural')
-const Analyzer = natural.SentimentAnalyzer;
-const Tokenizer = new natural.WordTokenizer();
-const stemmer = natural.PorterStemmer;
-const lexicon = new natural.Lexicon('EN', 'N', 'NNP');
-const ruleSet = new natural.RuleSet('EN');
-const tagger = new natural.BrillPOSTagger(lexicon, ruleSet);
-const classifier = require('../bot/classifier');
 const classifications = require('../bot/botkit/classifications');
-const analyzer = new Analyzer("English", stemmer, "afinn");
+const getIntent = require('../bot/botkit/getIntent');
 
 module.exports = function(controller) {
-    controller.hears(message => {
-        context.currIntent = classifier.getClassifications(message.text)[0].label;
-        return context.currIntent == classifications.inquiries.cancel;
-    }, 'message', async (bot, message) => await bot.reply(message, "You boring sack of sh-"));
-
+    controller.hears(message => getIntent(message.text, classifications.inquiries.cancel), 'message', async (bot, message) => await bot.reply(message, "You boring sack of sh-"));
 }

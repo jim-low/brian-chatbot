@@ -1,17 +1,10 @@
-const context = require('../bot/botkit/context.js');
+const context = require('../bot/botkit/context');
 const natural = require('natural')
-const Tokenizer = new natural.WordTokenizer();
-const lexicon = new natural.Lexicon('EN', 'N', 'NNP');
-const ruleSet = new natural.RuleSet('EN');
-const tagger = new natural.BrillPOSTagger(lexicon, ruleSet);
-const classifier = require('../bot/classifier');
 const classifications = require('../bot/botkit/classifications');
+const getIntent = require('../bot/botkit/getIntent');
 
 module.exports = function(controller) {
-    controller.hears(message => {
-        context.currIntent = classifier.getClassifications(message.text)[0].label;
-        return context.currIntent == classifications.joke.rickroll;
-    }, 'message', async (bot, message) => {
+    controller.hears(message => getIntent(message.text, classifications.joke.rickroll), 'message', async (bot, message) => {
         await bot.reply(message, 'congratulations, you have decided to get rick rolled');
         await bot.reply(message,
             `<video width="320" height="240" autoplay>

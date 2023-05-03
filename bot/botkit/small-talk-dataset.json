@@ -36,7 +36,11 @@
         {
             "intent": "small_talk.sawcon",
             "sentences": [
-                "how do you do"
+                "how do you do",
+                "how was your day",
+                "how are you doing",
+                "how have you been",
+                "did you have a great day"
             ]
         },
         {
@@ -100,6 +104,8 @@
             "intent": "offend.thatIsThePoint",
             "sentences": [
                 "you are arrogant",
+                "that is offensive",
+                "you offend me",
                 "you make me feel like i am stupid",
                 "you make me mad",
                 "you make me angry",
@@ -206,7 +212,14 @@
             "intent": "inquiries.warranty",
             "sentences": [
                 "i have a warranty",
-                "i have no warranty"
+                "i want a warranty",
+                "i have no warranty",
+                "i want to ask about warranty",
+                "i want to know about warranty",
+                "i wish to know about warranty",
+                "i would like to know about warranty",
+                "more on warranty",
+                "warranty"
             ]
         },
         {
@@ -222,6 +235,13 @@
             "intent": "inquiries.warrantyExtension",
             "sentences": [
                 "i would like to know about the warranty extension",
+                "i want to know about the warranty extension",
+                "i wish to know about the warranty extension",
+                "warranty extension",
+                "i want to extend the warranty",
+                "i want to extend my warranty",
+                "i want to extend warranty",
+                "i want to make my warranty longer",
                 "is there an extension for warranty"
             ]
         },
