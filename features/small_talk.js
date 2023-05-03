@@ -17,16 +17,17 @@ module.exports = function(controller) {
         return false;
 
     }, 'message', async (bot, message) => {
-        await bot.reply(message, `Fuck you, ${context.userName}`);
+        await bot.reply(message, `Hello there, ${context.userName}`);
     })
 
     controller.hears(message => getIntent(message.text, classifications.small_talk.hello), 'message', async (bot, message) => {
         await bot.reply(message, "Hello, what's your name?");
     })
 
-    controller.hears(message => getIntent(message.text, classifications.small_talk.niceToMeetYou), 'message', async (bot, message) => {
-        await bot.reply(message, "Fuck you, how can I help?");
-    })
+    controller.hears(message => getIntent(message.text, classifications.small_talk.niceToMeetYou),
+        'message', async (bot, message) => {
+            await bot.reply(message, "How can I help?");
+        })
 
     controller.hears(message => getIntent(message.text, classifications.small_talk.whatDoYouDo), 'message', async (bot, message) => {
         await bot.reply(message, `I am a chatbot titled ${context.botName} with the insufferable personality of Brian from RST2 Group 4.`)

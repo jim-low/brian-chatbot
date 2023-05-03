@@ -243,8 +243,8 @@ module.exports = function(controller) {
     location.addMessage('Alright, Here are the shops i can find in batu Pahat.', 'batu-pahat-location');
     location.addMessage(locationList.johor.at(0).batuPahat, 'batu-pahat-location');
 
-    location.addMessage('Alright, Here are the shops i can find in Alor Setar.', 'alor-setar-location');
-    location.addMessage(locationList.johor.at(0).johorBahru, 'alor-setar-location');
+    location.addMessage('Alright, Here are the shops i can find in Johor Bahru.', 'alor-setar-location');
+    location.addMessage(locationList.johor.at(0).johorBahru, 'johor-bahru-location');
 
     location.addMessage('Alright, Here are the shops i can find in Bintulu.', 'bintulu-location');
     location.addMessage(locationList.sarawak.at(0).bintulu, 'bintulu-location');

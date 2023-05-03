@@ -28,16 +28,17 @@ module.exports = function(controller) {
         await bot.reply(message, 'got em');
     })
 
-    controller.hears(message => getIntent(message.text, classifications.joke.book), 'message', async (bot, message) => {
-        await bot.reply(message, 'I have read "The Subtle Art of Not Giving a Fuck" by Mark Manson');
-        await bot.reply(message, 'I highly recommend it');
-    });
+    controller.hears(message => getIntent(message.text, classifications.joke.book),
+        'message', async (bot, message) => {
+            await bot.reply(message, 'I have read "The Subtle Art of Not Giving a F***" by Mark Manson');
+            await bot.reply(message, 'I highly recommend it');
+        });
 
     controller.hears(message => {
         const result = Analyzer.getSentiment(Tokenizer.tokenize(message.text));
         return getIntent(message.text, classifications.joke.iDontGiveAFuck) && result < 0;
     }, 'message', async (bot, message) => {
-        await bot.reply(message, 'Well I dont give a fuck');
+        await bot.reply(message, 'Well, I do not give a fook');
     })
 
     controller.hears(message => getIntent(message.text, classifications.offend.thatIsThePoint), 'message', async (bot, message) => {
@@ -68,9 +69,10 @@ module.exports = function(controller) {
         await bot.reply(message, 'You dont have it');
     })
 
-    controller.hears(message => getIntent(message.text, classifications.offend.goodToEat), 'message', async (bot, message) => {
-        await bot.reply(message, "Yo mom's ass");
-    })
+    controller.hears(message => getIntent(message.text, classifications.offend.goodToEat),
+        'message', async (bot, message) => {
+            await bot.reply(message, "Yo mom's a-");
+        })
 
     controller.hears(message => getIntent(message.text, classifications.dumb_talk.whatsUrBiz), 'message', async (bot, message) => {
         await bot.reply(message, "None of your business");
