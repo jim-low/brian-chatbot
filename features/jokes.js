@@ -7,6 +7,7 @@ const Tokenizer = new natural.WordTokenizer();
 const Analyzer = new natural.SentimentAnalyzer("English", stemmer, "afinn");
 
 module.exports = function(controller) {
+    
     controller.hears('Jim Low Lap Hong', 'message', async (bot, message) => {
         await bot.reply(message, 'Jim Low Yap Hong lmao');
     })
