@@ -61,7 +61,6 @@ module.exports = function(controller) {
     }, 'message', async(bot, message) => {
         await bot.reply(message, {type: 'typing'});
             setTimeout(async () => {
-                // will have to reset context because turn has now ended.
                 await bot.changeContext(message.reference);
                 await bot.reply(message, 'In order to replace your product, you must have your product registered (if you have not done so) in the site.');
                 await bot.reply(message, '1) You would need to search for the id number of your electronic.');
