@@ -8,10 +8,8 @@ const Analyzer = new SentimentAnalyzer("English", PorterStemmer, "afinn");
 dataset.data.forEach(foo => {
     foo.sentences.forEach(sentence => {
         classifier.addDocument(sentence, foo.intent)
-        // classifier.addDocument(PorterStemmer.tokenizeAndStem(sentence), foo.intent)
-        // classifier.addDocument(PorterStemmer.tokenizeAndStem(sentence).join(' '), foo.intent)
-
-        console.log(classifier.docs[0])
+        classifier.addDocument(PorterStemmer.tokenizeAndStem(sentence), foo.intent)
+        classifier.addDocument(PorterStemmer.tokenizeAndStem(sentence).join(' '), foo.intent)
     })
 })
 
