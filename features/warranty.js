@@ -1,6 +1,7 @@
 const context = require('../bot/botkit/context');
 const natural = require('natural')
 const classifications = require('../bot/botkit/classifications');
+const classifier = require('../bot/classifier');
 const getIntent = require('../bot/botkit/getIntent');
 
 const NGrams = natural.NGrams;
@@ -55,10 +56,7 @@ module.exports = function(controller) {
         }
     })
 
-    controller.hears(message => {
-        context.currIntent = classifier.getClassifications(message.text)[0].label;
-        return context.currIntent = classifications.inquiries.warrantyRegistration;
-    }, 'message', async(bot, message) => {
+    controller.hears(message => getIntent(message.text, classifications.inquiries.warrantyRegistration), 'message', async(bot, message) => {
         await bot.reply(message, {type: 'typing'});
             setTimeout(async () => {
                 // will have to reset context because turn has now ended.
@@ -72,10 +70,7 @@ module.exports = function(controller) {
         
     });
 
-    controller.hears(message => {
-        context.currIntent = classifier.getClassifications(message.text)[0].label;
-        return context.currIntent = classifications.inquiries.warrantyExtension;
-    }, 'message', async(bot, message) => {
+    controller.hears(message => getIntent(message.text, classifications.inquiries.warrantyExtension), 'message', async(bot, message) => {
 
         await bot.reply(message, {type: 'typing'});
         setTimeout(async () => {

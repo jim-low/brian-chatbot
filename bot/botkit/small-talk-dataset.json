@@ -328,6 +328,10 @@
             "sentences": [
                 "let me explore around a bit"
             ]
+        },
+        {
+            "intent": "dontUnderstand",
+            "sentences": []
         }
     ]
 }
