@@ -39,14 +39,16 @@ module.exports = function(controller) {
         const result = Analyzer.getSentiment(Tokenizer.tokenize(message.text));
         return getIntent(message.text, classifications.joke.iDontGiveAFuck) && result < 0;
     }, 'message', async (bot, message) => {
-        await bot.reply(message, 'Well, I do not give a fook');
+        await bot.reply(message, 'Well, thats too bad');
     })
 
     controller.hears(message => getIntent(message.text, classifications.offend.thatIsThePoint), 'message', async (bot, message) => {
         await bot.reply(message, 'that is the point');
     });
 
-    controller.hears(message => getIntent(message.text, classifications.joke.meToo), 'message', async (bot, message) => {
+    controller.hears(message => {
+        return getIntent(message.text, classifications.joke.meToo) && Analyzer.getSentiment(Tokenizer.tokenize(message.text)) < 0;
+    }, 'message', async (bot, message) => {
         await bot.reply(message, 'me too');
     });
 
