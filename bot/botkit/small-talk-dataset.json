@@ -36,11 +36,7 @@
         {
             "intent": "small_talk.sawcon",
             "sentences": [
-                "how do you do",
-                "how was your day",
-                "how are you doing",
-                "how have you been",
-                "did you have a great day"
+                "how do you do"
             ]
         },
         {
@@ -104,8 +100,13 @@
             "intent": "offend.thatIsThePoint",
             "sentences": [
                 "you are arrogant",
-                "that is offensive",
-                "you offend me"
+                "you make me feel like i am stupid",
+                "you make me mad",
+                "you make me angry",
+                "you act like a child",
+                "you made me mad",
+                "you are not making sense",
+                "are you stupid"
             ]
         },
         {
@@ -208,9 +209,7 @@
             "intent": "inquiries.warranty",
             "sentences": [
                 "i have a warranty",
-                "i want a warranty",
-                "i have no warranty",
-                "warranty"
+                "i have no warranty"
             ]
         },
         {
@@ -226,13 +225,6 @@
             "intent": "inquiries.warrantyExtension",
             "sentences": [
                 "i would like to know about the warranty extension",
-                "i want to know about the warranty extension",
-                "i wish to know about the warranty extension",
-                "warranty extension",
-                "i want to extend the warranty",
-                "i want to extend my warranty",
-                "i want to extend warranty",
-                "i want to make my warranty longer",
                 "is there an extension for warranty"
             ]
         },
@@ -303,7 +295,7 @@
                 "i would like to know more about",
                 "i would like to buy",
                 "i would like to purchase",
-                "view your products"
+                "view"
             ]
         },
         {
@@ -319,10 +311,6 @@
             "sentences": [
                 "let me explore around a bit"
             ]
-        },
-        {
-            "intent": "dontUnderstand",
-            "sentences": []
         }
     ]
 }
